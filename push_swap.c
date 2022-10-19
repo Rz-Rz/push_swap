@@ -1,11 +1,11 @@
 #include "push_swap.h"
-#include <stdarg.h>
-#include <stdio.h>
-#include <stdlib.h>
 
-// this function will take in all the argument in av and fill stack_a as linked
-// list.
-node *fill_stack_a(int ac, char **av) {
+// Function: fill_stack_a 
+// Description: Take all the argument in av, transform them into int and put them in a linked list.
+// Input: int ac - the number of arguments, char **av - the arguments
+// Output: node * - the linked list
+node *fill_stack_a(int ac, char **av)
+{
   node *stack_a;
   node *curr;
   int i;
@@ -27,7 +27,12 @@ node *fill_stack_a(int ac, char **av) {
   return (stack_a);
 }
 
-void put_pos(node *stack) {
+// Function: put_pos
+// Description: Put the position of each node in the linked list
+// Input: node *stack - the linked list
+// Output: void
+void put_pos(node *stack)
+{
   node *curr;
   int i;
 
@@ -42,8 +47,6 @@ void put_pos(node *stack) {
   }
 }
 
-void quicksort(node *stack) {}
-
 void put_index(node *stack) {
   node *curr;
   int i;
@@ -52,7 +55,12 @@ void put_index(node *stack) {
   i = 1;
 }
 
-void print_stack(node *stack) {
+// Function: print_stack
+// Description: Print the values of the linked list
+// Input: node *stack - the linked list
+// Output: void
+void print_stack(node *stack) 
+{
   node *curr;
   if (!stack) {
     printf("stack is empty");
