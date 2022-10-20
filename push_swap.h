@@ -26,10 +26,17 @@ node *fill_stack_a(int ac, char **av);
 void put_pos(node *stack);
 void print_stack(node *stack);
 
+//sorting.c 
+void quick_sort(int *stack, int low, int high); 
+int partition(int *arr, int low, int high);
+int *nodeval_to_int(node *stack, int ac); 
+void swap(int *a, int *b);
+void put_index(node *stack, int ac);
 
 
 
 
+// ft_utils.c
 int ft_atoi(const char *nptr);
 
 #endif

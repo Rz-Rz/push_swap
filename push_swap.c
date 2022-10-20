@@ -39,22 +39,13 @@ void put_pos(node *stack)
   curr = stack;
   i = 1;
   while (curr) {
-    curr->index = i;
+    curr->pos = i;
     if (!curr->next)
       break;
     curr = curr->next;
     i++;
   }
 }
-
-void put_index(node *stack) {
-  node *curr;
-  int i;
-
-  curr = stack;
-  i = 1;
-}
-
 // Function: print_stack
 // Description: Print the values of the linked list
 // Input: node *stack - the linked list
@@ -70,15 +61,19 @@ void print_stack(node *stack)
   while (curr) {
     printf("value : %d\n", curr->value);
     printf("index : %d\n", curr->index);
+    printf("pos : %d\n", curr->pos);
     curr = curr->next;
   }
 }
 
 void push_swap(int ac, char **av) {
+	int i = 0;
   node *stack_a;
   node *stack_b;
   stack_a = fill_stack_a(ac, av);
   put_pos(stack_a);
+  int *arr;
+  put_index(stack_a, ac);
   print_stack(stack_a);
 }
 

@@ -25,7 +25,7 @@ int *nodeval_to_int(node *stack, int ac) {
   if (!arr)
     return (NULL);
   i = 0;
-  while (stack && stack->next) {
+  while (stack) {
     arr[i] = stack->value;
     i++;
     stack = stack->next;
@@ -69,9 +69,37 @@ int partition(int *arr, int low, int high)
 void quick_sort(int *stack, int low, int high) {
   int pivot;
 
-  if (low >= high) {
+  if (low < high) {
     pivot = partition(stack, low, high);
     quick_sort(stack, low, pivot - 1);
     quick_sort(stack, pivot + 1, high);
+  }
+}
+
+// Function: put_index
+// Description: Put the index, the place the number should have, in the linked list.
+// Input: node *stack - the linked list
+//        int ac - the argument count
+// Output: void
+void put_index(node *stack, int ac) 
+{
+  node *curr;
+  int i;
+  int *arr;
+
+  curr = stack;
+  i = 1;
+  arr = nodeval_to_int(stack, ac);
+  quick_sort(arr, 0, ac - 2);
+  while (curr) {
+    while (i < ac) {
+      if (curr->value == arr[i - 1]) {
+	curr->index = i;
+	break;
+      }
+      i++;
+    }
+    i = 1;
+    curr = curr->next;
   }
 }
