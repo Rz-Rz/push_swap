@@ -6,15 +6,16 @@
 #    By: kdhrif <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/28 11:11:35 by kdhrif            #+#    #+#              #
-#    Updated: 2022/07/30 14:10:08 by kdhrif           ###   ########.fr        #
+#    Updated: 2022/10/21 18:44:32 by kdhrif           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-PS = ps.a
+PS = push_swap
 HEADERS = ft_ps.h
 CC = gcc -Wall -Wextra -Werror
 SRCS =
 OBJ = $(SRCS:%.c=%.o)
+PRINTF = ./ft_printf
 
 # Colors
 
@@ -30,13 +31,15 @@ WHITE = \033[0;97m
 
 all: $(PS)
 
-$(PS) : $(OBJ)
-	ar rcs $(PS) $(OBJ)
-	@echo "$(GREEN)ft_printf compiled!$(DEF_COLOR)"
+$(PS) : $(OBJ) printf
+	$(CC) $(OBJ) $(PRINTF)/libftprintf.a -o $(PS)
+	@echo "$(GREEN)ps compiled!$(DEF_COLOR)"
 
 %.o : %.c $(HEADERS)
 	@echo "$(YELLOW)Compiling: $< $(DEF_COLOR)"
-	$(CC) -o $@ -c $<
+
+printf : 
+	make -C $(PRINTF)
 
 re: fclean all
 	@echo "$(GREEN)Cleaned and rebuilt everything for ft_pushswap!$(DEF_COLOR)"

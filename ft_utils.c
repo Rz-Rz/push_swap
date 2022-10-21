@@ -6,15 +6,21 @@
 /*   By: kdhrif <kdhrif@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 12:27:40 by kdhrif            #+#    #+#             */
-/*   Updated: 2022/10/18 19:27:57 by kdhrif           ###   ########.fr       */
+/*   Updated: 2022/10/21 18:52:43 by kdhrif           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int ft_atoi(const char *nptr) 
+
+// Function: ft_atoi 
+// Description: Converts a string to an integer. Modify an int pointer is the input is invalid.
+// Parameters: char *str - the string to convert.
+//             int *error - pointer to an int to modify if the input is invalid.
+// Return: The integer value of the string.
+int ft_atoi(const char *nptr, int *error) 
 {
-  int nb;
+  long long nb;
   int neg;
 
   nb = 0;
@@ -28,5 +34,9 @@ int ft_atoi(const char *nptr)
     nb = nb * 10 + *nptr++ - '0';
   if (neg)
     nb *= -1;
-  return (nb);
+  if (*nptr != '\0')
+	  *error = 1;
+  if (nb > 2147483647 || nb < -2147483648)
+	  *error = 1;
+  return ((int)nb);
 }

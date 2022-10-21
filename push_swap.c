@@ -9,20 +9,30 @@ node *fill_stack_a(int ac, char **av)
   node *stack_a;
   node *curr;
   int i;
+  int error;
 
+  error = 0;
   stack_a = malloc(sizeof(node));
-  stack_a->value = ft_atoi(av[1]);
-
+  stack_a->value = ft_atoi(av[1], &error);
   i = 2;
   stack_a->next = malloc(sizeof(node));
   curr = stack_a->next;
   while (av[i]) {
-    curr->value = ft_atoi(av[i]);
+    curr->value = ft_atoi(av[i], &error);
+    printf("error: %d\n", error);
     i++;
     if (!av[i])
       break;
     curr->next = malloc(sizeof(node));
     curr = curr->next;
+  }
+  curr->next = NULL;
+  error += is_duplicate(stack_a);
+  printf("error: %d\n", error);
+  if (error)
+  {
+	  lst_free(stack_a);
+	  return (NULL);
   }
   return (stack_a);
 }
@@ -66,21 +76,29 @@ void print_stack(node *stack)
   }
 }
 
-void push_swap(int ac, char **av) {
+int push_swap(int ac, char **av) {
 	int i = 0;
-  node *stack_a;
-  node *stack_b;
-  stack_a = fill_stack_a(ac, av);
-  put_pos(stack_a);
-  int *arr;
-  put_index(stack_a, ac);
-  print_stack(stack_a);
+	node *stack_a;
+	node *stack_b;
+	stack_a = fill_stack_a(ac, av);
+	if (stack_a == NULL)
+		return  (-1);
+	printf("is ordered = %d\n", is_ordered(stack_a));
+	put_pos(stack_a);
+	int *arr;
+	put_index(stack_a, ac);
+	print_stack(stack_a);
+	printf("is ordered = %d\n", is_ordered(stack_a));
+	return (1);
 }
 
 int main(int ac, char **av) {
+	int i = 0;
   if (ac < 2)
     return (0);
-  push_swap(ac, av);
+  i = push_swap(ac, av);
+  if (i == -1)
+	  printf("Error\n");
 
   return (0);
 }

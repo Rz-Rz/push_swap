@@ -102,4 +102,5 @@ void put_index(node *stack, int ac)
     i = 1;
     curr = curr->next;
   }
+  free(arr);
 }
