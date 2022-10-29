@@ -57,6 +57,10 @@ void rra(node **stack_a) {
   if (!(*stack_a) || !(*stack_a)->next)
     return;
   tmp = *stack_a;
-  *stack_a = lst_last(*stack_a);
-  (*stack_a)->next = tmp;
+  while (tmp->next->next)
+    tmp = tmp->next;
+  /* printf("tmp->next->next = %p", tmp->next); */
+  tmp->next->next = *stack_a;
+  *stack_a = tmp->next;
+  tmp->next = NULL;
 }

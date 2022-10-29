@@ -12,10 +12,10 @@ int is_ordered(node *stack)
     while (tmp->next)
     {
 	if (tmp->value > tmp->next->value)
-	    return (1);
+	    return (0);
 	tmp = tmp->next;
     }
-    return (0);
+    return (1);
 }
 
 // Function: is_duplicate

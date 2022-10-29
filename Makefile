@@ -6,14 +6,14 @@
 #    By: kdhrif <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/28 11:11:35 by kdhrif            #+#    #+#              #
-#    Updated: 2022/10/21 18:44:32 by kdhrif           ###   ########.fr        #
+#    Updated: 2022/10/29 15:41:57 by kdhrif           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 PS = push_swap
 HEADERS = ft_ps.h
 CC = gcc -Wall -Wextra -Werror
-SRCS =
+SRCS = action_a.c action_b.c action_r.c ft_utils.c linked_list_0.c linked_list_1.c parsing.c push_swap.c sorting.c 
 OBJ = $(SRCS:%.c=%.o)
 PRINTF = ./ft_printf
 

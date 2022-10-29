@@ -26,7 +26,7 @@ node *lst_last(node *stack);
 void lst_free(node *head);
 
 // push_swap.c
-node *fill_stack_a(int ac, char **av);
+node *fill_stack_a(char **av);
 void put_pos(node *stack);
 void print_stack(node *stack);
 
@@ -54,6 +54,9 @@ void sa(node **stack_a);
 void pa(node **stack_a, node **stack_b);
 
 // action_r.c
+void rrr(node **stack_a, node **stack_b);
+void rr(node **stack_a, node **stack_b);
+void ss(node **stack_a, node **stack_b);
 
 // ft_utils.c
 int ft_atoi(const char *nptr, int *error);

@@ -52,11 +52,12 @@ void rb(node **stack_b) {
 // Input: node **stack_b - the stack to rotate
 // Output: void
 void rrb(node **stack_b) {
-  node *tmp;
+  node *last;
 
   if (!(*stack_b) || !(*stack_b)->next)
     return;
-  tmp = *stack_b;
-  *stack_b = lst_last(*stack_b);
-  (*stack_b)->next = tmp;
+  last = lst_last(*stack_b);
+  last->next = *stack_b;
+  *stack_b = (*stack_b)->next; 
+  last->next->next = NULL;
 }
