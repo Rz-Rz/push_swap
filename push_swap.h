@@ -15,6 +15,9 @@ typedef struct node {
   int cost_b;
 } node;
 
+// ft_printf 
+int	ft_printf(const char *format, ...);
+
 // linked_list_0.c
 node *lst_new(int value);
 node *lst_duplicate(node *stack);

@@ -13,6 +13,7 @@ void pa(node **stack_a, node **stack_b) {
   *stack_b = (*stack_b)->next;
   tmp->next = *stack_a;
   *stack_a = tmp;
+  ft_printf("pa\n");
 }
 
 // Function sa
@@ -28,6 +29,7 @@ void sa(node **stack_a) {
   (*stack_a)->next = tmp->next;
   tmp->next = *stack_a;
   *stack_a = tmp;
+  ft_printf("sa\n");
 }
 
 // Function ra
@@ -45,6 +47,7 @@ void ra(node **stack_a) {
   tmp->next = *stack_a;
   *stack_a = (*stack_a)->next;
   tmp->next->next = NULL;
+  ft_printf("ra\n");
 }
 
 // Function rra
@@ -59,8 +62,8 @@ void rra(node **stack_a) {
   tmp = *stack_a;
   while (tmp->next->next)
     tmp = tmp->next;
-  /* printf("tmp->next->next = %p", tmp->next); */
-  tmp->next->next = *stack_a;
-  *stack_a = tmp->next;
-  tmp->next = NULL;
+  tmp->next->next = *stack_a; // *stack_a is now the second element. 
+  *stack_a = tmp->next; // *stack_a is assigned to what used to be the last element, which is now the first.
+  tmp->next = NULL; // What used to point to the last element, now points to NULL, as the new last element.
+  ft_printf("rra\n");
 }
