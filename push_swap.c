@@ -35,25 +35,6 @@ node *fill_stack_a(char **av)
   return (stack_a);
 }
 
-// Function: put_pos
-// Description: Put the position of each node in the linked list
-// Input: node *stack - the linked list
-// Output: void
-void put_pos(node *stack)
-{
-  node *curr;
-  int i;
-
-  curr = stack;
-  i = 1;
-  while (curr) {
-    curr->pos = i;
-    if (!curr->next)
-      break;
-    curr = curr->next;
-    i++;
-  }
-}
 // Function: print_stack
 // Description: Print the values of the linked list
 // Input: node *stack - the linked list
@@ -81,11 +62,11 @@ int push_swap(int ac, char **av) {
 	stack_a = fill_stack_a(av);
 	if (stack_a == NULL)
 		return  (-1);
-	put_pos(stack_a);
 	printf("stack_b %d\n", lst_size(stack_b));
 	pb(&stack_a, &stack_b);
 	pb(&stack_a, &stack_b);
 	pb(&stack_a, &stack_b);
+	put_pos(stack_a, stack_b);
 	printf("stack_a %d\n", lst_size(stack_a));
 	put_index(stack_a, stack_b);
 	printf("stack_a\n");

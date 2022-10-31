@@ -6,7 +6,7 @@
 /*   By: kdhrif <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 13:08:13 by kdhrif            #+#    #+#             */
-/*   Updated: 2022/10/31 17:28:42 by kdhrif           ###   ########.fr       */
+/*   Updated: 2022/10/31 20:29:16 by kdhrif           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,9 @@ void sort(node **stack_a, node **stack_b)
 	push_to_b(stack_a, stack_b);
 	while (*stack_b)
 	{
-		find_pos(stack_a, stack_b);
-		/* find_target_pos(stack_a, stack_b); */
+		put_pos(*stack_a, *stack_b);
+		put_index(*stack_a, *stack_b);
+		put_target_pos(*stack_a, *stack_b);
 		/* find_nb_action(stack_a, stack_b); */
 		/* find_cheapest_action(stack_a, stack_b); */
 		/* do_action(stack_a, stack_b); */
@@ -76,24 +77,30 @@ void push_to_b(node **stack_a, node **stack_b)
 	sort_3(stack_a);
 }
 
-// Function: find_pos
-// Description: Find the actual position of each element of stack_a and stack_b.
-// Input: node **stack_a - the stack to sort to. node **stack_b - the stack to sort from.
+// Function: put_pos
+// Description: Put the position of each node in the linked list, starting from 0 to lst_size.
+// Input: node *stack_a - the linked list to put the position in.
+//        node *stack_b - the linked list to put the position in.
 // Output: void
-void find_pos(node **stack_a, node **stack_b)
+void put_pos(node *stack_a, node *stack_b)
 {
-	node *curr;
+	int i;
+	node *tmp;
 
-	curr = *stack_a;
-	while (curr)
+	i = 0;
+	tmp = stack_a;
+	while (tmp)
 	{
-		curr->pos = curr->index;
-		curr = curr->next;
+		tmp->pos = i;
+		tmp = tmp->next;
+		i++;
 	}
-	curr = *stack_b;
-	while (curr)
+	i = 0;
+	tmp = stack_b;
+	while (tmp)
 	{
-		curr->pos = curr->index;
-		curr = curr->next;
+		tmp->pos = i;
+		tmp = tmp->next;
+		i++;
 	}
 }

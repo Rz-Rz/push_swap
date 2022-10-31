@@ -31,7 +31,6 @@ int lst_size(node* head);
 
 // push_swap.c
 node *fill_stack_a(char **av);
-void put_pos(node *stack);
 void print_stack(node *stack);
 
 // sorting_0.c
@@ -72,7 +71,7 @@ int ft_atoi(const char *nptr, int *error);
 void sort_3(node **stack_a);
 void sort_2(node **stack_a);
 void push_to_b(node **stack_a, node **stack_b);
-void find_pos(node **stack_a, node **stack_b);
+void put_pos(node *stack_a, node *stack_b);
 void sort(node **stack_a, node **stack_b);
 
 //algo_1.c

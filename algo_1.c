@@ -1,43 +1,37 @@
 #include "push_swap.h"
 
-// Function: find_target_pos
-// Description: find the target position the elements of stack_a and stack_b in the stack_a and put it in index
-// Input: node **stack_a, node **stack_b
+// Function: put_target_pos
+// Description: Put the target_pos of each node in stack_b. The target_pos correspond to the position it should hold in stack_a. To find the target_pos we seek in stack_a the index the closest but always superior to the index in stack_b. If the element in stack_b has an index greater than all elements of stack_a, we use as target_pos the smallest index in stack_a. 
+// Input: node *stack_b - the linked list to put the target_pos in.
+//        node *stack_a - the linked list to use to evaluate the target_pos.
 // Output: void
-void	find_target_pos(node **stack_a, node **stack_b)
+void	put_target_pos(node *stack_b, node *stack_a)
 {
+	node	*tmp;
 	int		i;
 	int		j;
-	int		k;
-	int		*index;
-	node	*tmp;
+	int		index;
+	int		target_pos;
 
-	i = 0;
-	j = 0;
-	k = 0;
-	index = nodeval_to_int(*stack_a, *stack_b);
-	quick_sort(index, 0, lst_size(*stack_a) + lst_size(*stack_b) - 1);
-	tmp = *stack_a;
-	while (j < i)
+	tmp = stack_b;
+	while (tmp)
 	{
-		tmp = *stack_a;
-		while (tmp)
+		i = 0;
+		j = 0;
+		index = tmp->index;
+		while (stack_a)
 		{
-			if (tmp->value == index[j])
-				tmp->index = k;
-			tmp = tmp->next;
+			if (stack_a->index > index)
+			{
+				target_pos = i;
+				break ;
+			}
+			stack_a = stack_a->next;
+			i++;
 		}
-		tmp = *stack_b;
-		while (tmp)
-		{
-			if (tmp->value == index[j])
-				tmp->index = k;
-			tmp = tmp->next;
-		}
-		j++;
-		k++;
+		if (stack_a == NULL)
+			target_pos = j;
+		tmp->target_pos = target_pos;
+		tmp = tmp->next;
 	}
-	free(index);
 }
-
-
