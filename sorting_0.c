@@ -17,18 +17,27 @@ void swap(int *a, int *b) {
 // an int array. Input: node *stack - the list to take values from.
 //        int ac - the argument count
 // Output: int * - the int array.
-int *nodeval_to_int(node *stack, int ac) {
+int *nodeval_to_int(node *stack_a, node *stack_b) 
+{
   int *arr;
   int i;
 
-  arr = malloc(sizeof(int) * ac);
+  arr = malloc(sizeof(int) * (lst_size(stack_a) + lst_size(stack_b)));
   if (!arr)
     return (NULL);
   i = 0;
-  while (stack) {
-    arr[i] = stack->value;
+  while (stack_a) {
+    arr[i] = stack_a->value;
     i++;
-    stack = stack->next;
+    stack_a = stack_a->next;
+  }
+  if (stack_b)
+  {
+	  while (stack_b) {
+		  arr[i] = stack_b->value;
+		  i++;
+		  stack_b = stack_b->next;
+	  }
   }
   return (arr);
 }
@@ -78,29 +87,19 @@ void quick_sort(int *stack, int low, int high) {
 
 // Function: put_index
 // Description: Put the index, the place the number should have, in the linked list.
-// Input: node *stack - the linked list
-//        int ac - the argument count
+// Input: node *stack_a - the linked list
+//       node *stack_b - the linked list
 // Output: void
-void put_index(node *stack, int ac) 
+void put_index(node *stack_a, node *stack_b) 
 {
-  node *curr;
-  int i;
+  int j;
   int *arr;
+  int ac;
 
-  curr = stack;
-  i = 1;
-  arr = nodeval_to_int(stack, ac);
-  quick_sort(arr, 0, ac - 2);
-  while (curr) {
-    while (i < ac) {
-      if (curr->value == arr[i - 1]) {
-	curr->index = i;
-	break;
-      }
-      i++;
-    }
-    i = 1;
-    curr = curr->next;
-  }
+  ac = lst_size(stack_a) + lst_size(stack_b);
+  j = 0;
+  arr = nodeval_to_int(stack_a, stack_b);
+  quick_sort(arr, 0, ac - 1);
+  put_index_bis(stack_a, stack_b, ac, j, arr);
   free(arr);
 }
