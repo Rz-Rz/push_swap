@@ -76,29 +76,18 @@ void print_stack(node *stack)
 
 int push_swap(int ac, char **av) {
 	node *stack_a;
-	node *stack_b;
-	stack_b = NULL;
+	/* node *stack_b; */
+	/* stack_b = NULL; */
 	stack_a = fill_stack_a(av);
 	if (stack_a == NULL)
 		return  (-1);
 	put_pos(stack_a);
 	put_index(stack_a, ac);
-	pb(&stack_a, &stack_b);
-	pb(&stack_a, &stack_b);
-	pb(&stack_a, &stack_b);
-	pb(&stack_a, &stack_b);
-	printf("stack_a\n");
+	if (ac == 3)
+		sort_2(&stack_a);
+	else if (ac == 4)
+		sort_3(&stack_a);
 	print_stack(stack_a);
-	printf("stack_b\n");
-	print_stack(stack_b);
-	pa(&stack_a, &stack_b);
-	pa(&stack_a, &stack_b);
-	pa(&stack_a, &stack_b);
-	pa(&stack_a, &stack_b);
-	printf("stack_a\n");
-	print_stack(stack_a);
-	printf("stack_b\n");
-	print_stack(stack_b);
 
 	return (1);
 }

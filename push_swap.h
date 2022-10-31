@@ -27,6 +27,7 @@ node *lst_last(node *stack);
 
 // linked_list_1.c
 void lst_free(node *head);
+int lst_size(node* head);
 
 // push_swap.c
 node *fill_stack_a(char **av);
@@ -63,5 +64,16 @@ void ss(node **stack_a, node **stack_b);
 
 // ft_utils.c
 int ft_atoi(const char *nptr, int *error);
+
+//algo_0.c 
+void sort_3(node **stack_a);
+void sort_2(node **stack_a);
+void push_to_b(node **stack_a, node **stack_b);
+void find_pos(node **stack_a, node **stack_b);
+void sort(node **stack_a, node **stack_b);
+
+//algo_1.c
+
+
 
 #endif
