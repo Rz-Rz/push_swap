@@ -66,6 +66,7 @@ void ss(node **stack_a, node **stack_b);
 
 // ft_utils.c
 int ft_atoi(const char *nptr, int *error);
+int ft_abs(int nb);
 
 //algo_0.c 
 void sort_3(node **stack_a);
@@ -75,6 +76,9 @@ void put_pos(node *stack_a, node *stack_b);
 void sort(node **stack_a, node **stack_b);
 
 //algo_1.c
+int	is_superior(node *stack_b, node *stack_a);
+int	get_pos_of_smallest_index(node *stack_a);
+void	put_target_pos(node *stack_b, node *stack_a);
 
 
 

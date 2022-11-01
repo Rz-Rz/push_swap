@@ -6,7 +6,7 @@
 /*   By: kdhrif <kdhrif@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 12:27:40 by kdhrif            #+#    #+#             */
-/*   Updated: 2022/10/21 18:52:43 by kdhrif           ###   ########.fr       */
+/*   Updated: 2022/11/01 15:18:30 by kdhrif           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,15 @@ int ft_atoi(const char *nptr, int *error)
   if (nb > 2147483647 || nb < -2147483648)
 	  *error = 1;
   return ((int)nb);
+}
+
+// Function: ft_abs
+// Description: Returns the absolute value of an integer.
+// Parameters: int nb - the integer to convert.
+// Return: The absolute value of the integer.
+int ft_abs(int nb)
+{
+	if (nb < 0)
+		return (-nb);
+	return (nb);
 }

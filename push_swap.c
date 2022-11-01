@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kdhrif <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/01 16:08:20 by kdhrif            #+#    #+#             */
+/*   Updated: 2022/11/01 16:20:17 by kdhrif           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 // Function: fill_stack_a 
@@ -51,6 +63,8 @@ void print_stack(node *stack)
     printf("value : %d\n", curr->value);
     printf("index : %d\n", curr->index);
     printf("pos : %d\n", curr->pos);
+    printf("target pos : %d\n", curr->target_pos);
+    printf("--- node end ---\n");
     curr = curr->next;
   }
 }
@@ -62,16 +76,15 @@ int push_swap(int ac, char **av) {
 	stack_a = fill_stack_a(av);
 	if (stack_a == NULL)
 		return  (-1);
-	printf("stack_b %d\n", lst_size(stack_b));
 	pb(&stack_a, &stack_b);
 	pb(&stack_a, &stack_b);
 	pb(&stack_a, &stack_b);
 	put_pos(stack_a, stack_b);
-	printf("stack_a %d\n", lst_size(stack_a));
 	put_index(stack_a, stack_b);
+	put_target_pos(stack_b, stack_a);
 	printf("stack_a\n");
 	print_stack(stack_a);
-	printf("stack_a\n");
+	printf("---stack_b---\n");
 	print_stack(stack_b);
 	if (ac == 3)
 		sort_2(&stack_a);

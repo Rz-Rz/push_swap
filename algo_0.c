@@ -6,7 +6,7 @@
 /*   By: kdhrif <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 13:08:13 by kdhrif            #+#    #+#             */
-/*   Updated: 2022/10/31 20:29:16 by kdhrif           ###   ########.fr       */
+/*   Updated: 2022/11/01 16:08:01 by kdhrif           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void sort(node **stack_a, node **stack_b)
 	{
 		put_pos(*stack_a, *stack_b);
 		put_index(*stack_a, *stack_b);
-		put_target_pos(*stack_a, *stack_b);
+		/* put_target_pos(*stack_a, *stack_b); */
 		/* find_nb_action(stack_a, stack_b); */
 		/* find_cheapest_action(stack_a, stack_b); */
 		/* do_action(stack_a, stack_b); */
