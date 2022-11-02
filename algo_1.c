@@ -99,19 +99,19 @@ int	get_pos_of_smallest_index(node *stack_a)
 // Input: node *stack_b - the linked list to find the number of actions needed in.
 //       node *stack_a - the linked list to find the number of actions needed in.
 // Output: void
-void	find_nb_action(node *stack_b, node *stack_a)
+void	put_costs(node *stack_a, node *stack_b)
 {
 	node *tmp_b;
-	node *tmp_a;
 	int size_a;
+	int size_b;
 
 	tmp_b = stack_b;
-	tmp_a = stack_a;
 	size_a = lst_size(stack_a);
+	size_b = lst_size(stack_b);
 	while (tmp_b)
 	{
-
-
-
+		tmp_b->cost_b = compute_cost(tmp_b, size_b);
+		tmp_b->cost_a = compute_cost_a(tmp_b, stack_a, size_a);
+		tmp_b = tmp_b->next;
 	}
 }

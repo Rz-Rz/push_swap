@@ -30,3 +30,19 @@ int lst_size(node* head)
     }
     return (i);
 }
+
+// Function lst_search_target_pos
+// Description: Search the node in the list with the target_pos passed as parameter.
+// Input: node *head - the head of the list to search in.
+//       int target_pos - the target_pos to search for.
+// Output: node * - the node with the target_pos passed as parameter.
+node* lst_search_target_pos(node *head, int target_pos)
+{
+    while (head)
+    {
+	if (head->pos == target_pos)
+	    return (head);
+	head = head->next;
+    }
+    return (NULL);
+}

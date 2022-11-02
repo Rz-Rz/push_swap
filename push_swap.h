@@ -28,6 +28,7 @@ node *lst_last(node *stack);
 // linked_list_1.c
 void lst_free(node *head);
 int lst_size(node* head);
+node* lst_search_target_pos(node *head, int target_pos);
 
 // push_swap.c
 node *fill_stack_a(char **av);
@@ -80,5 +81,12 @@ int	is_superior(node *stack_b, node *stack_a);
 int	get_pos_of_smallest_index(node *stack_a);
 void	put_target_pos(node *stack_b, node *stack_a);
 void	put_target_pos_bis(node *tmp_b, node *stack_a, node *tmp_a, int min, int res);
+void	put_costs(node *stack_b, node *stack_a);
+
+//algo_2.c
+int	compute_cost(node *node, int size);
+int	compute_cost_a(node *node_b, node *stack_a, int size);
+node	*find_cheapest_action(node *stack_b);
+void	do_actions(node **stack_a, node **stack_b, node *to_sort);
 
 #endif

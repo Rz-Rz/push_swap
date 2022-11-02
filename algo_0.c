@@ -6,7 +6,7 @@
 /*   By: kdhrif <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 13:08:13 by kdhrif            #+#    #+#             */
-/*   Updated: 2022/11/02 15:24:52 by kdhrif           ###   ########.fr       */
+/*   Updated: 2022/11/02 20:20:57 by kdhrif           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void sort_2(node **stack_a)
 // Output: void
 void sort_3(node **stack_a) 
 {
+	printf("(*stack_a)");
 	while (!is_ordered(*stack_a))
 	{
 		if ((*stack_a)->index > (*stack_a)->next->index && (*stack_a)->index > (*stack_a)->next->next->index)
@@ -46,16 +47,19 @@ void sort_3(node **stack_a)
 // Output: void
 void sort(node **stack_a, node **stack_b)
 {
+	node *to_sort;
+
 	push_to_b(stack_a, stack_b);
 	while (*stack_b)
 	{
 		put_pos(*stack_a, *stack_b);
 		put_index(*stack_a, *stack_b);
 		put_target_pos(*stack_a, *stack_b);
-		find_nb_action(stack_a, stack_b);
-		/* find_cheapest_action(stack_a, stack_b); */
-		/* do_action(stack_a, stack_b); */
+		put_costs(*stack_b, *stack_a);
+		to_sort = find_cheapest_action(*stack_a);
+		do_actions(stack_a, stack_b, to_sort);
 	}
+	rotate_until_sorted(stack_a);
 }
 
 // Function: push_to_b
@@ -74,6 +78,9 @@ void push_to_b(node **stack_a, node **stack_b)
 		pb(stack_a, stack_b);
 		i++;
 	}
+	put_pos(*stack_a, *stack_b);
+	put_index(*stack_a, *stack_b);
+	put_target_pos(*stack_a, *stack_b);
 	sort_3(stack_a);
 }
 
