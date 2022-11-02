@@ -14,6 +14,18 @@ void	put_target_pos(node *stack_b, node *stack_a)
 
 	min = 500;
 	tmp_b = stack_b;
+	tmp_a = stack_a;
+	res = 0;
+	put_target_pos_bis(tmp_b, stack_a, tmp_a, min, res);
+}
+
+
+// Function: put_target_pos
+// Description: Put the target_pos of each node in stack_b. The target_pos correspond to the position it should hold in stack_a. To find the target_pos we seek in stack_a the index the closest but always superior to the index in stack_b. If the element in stack_b has an index greater than all elements of stack_a, we use as target_pos the smallest index in stack_a.
+// Input: node *stack_b - the linked list to put the target_pos in.
+//       node *stack_a - the linked list to use to evaluate the target_pos.
+void	put_target_pos_bis(node *tmp_b, node *stack_a, node *tmp_a, int min, int res)
+{
 	while (tmp_b)
 	{
 		tmp_a = stack_a;
@@ -80,4 +92,26 @@ int	get_pos_of_smallest_index(node *stack_a)
 		stack_a = stack_a->next;
 	}
 	return (pos);
+}
+
+// Function: find_nb_action 
+// Description: Find the number of actions needed to put the node in stack_b in the right position in stack_a. We use the target_pos of the node in stack_b to find the number of actions needed. We compute the cost for stack_b in cost_b, and cost for stack_a in cost_a.
+// Input: node *stack_b - the linked list to find the number of actions needed in.
+//       node *stack_a - the linked list to find the number of actions needed in.
+// Output: void
+void	find_nb_action(node *stack_b, node *stack_a)
+{
+	node *tmp_b;
+	node *tmp_a;
+	int size_a;
+
+	tmp_b = stack_b;
+	tmp_a = stack_a;
+	size_a = lst_size(stack_a);
+	while (tmp_b)
+	{
+
+
+
+	}
 }

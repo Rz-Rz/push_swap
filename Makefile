@@ -6,7 +6,7 @@
 #    By: kdhrif <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/28 11:11:35 by kdhrif            #+#    #+#              #
-#    Updated: 2022/11/01 16:11:09 by kdhrif           ###   ########.fr        #
+#    Updated: 2022/11/02 14:42:29 by kdhrif           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,11 +45,13 @@ re: fclean all
 	@echo "$(GREEN)Cleaned and rebuilt everything for ft_pushswap!$(DEF_COLOR)"
 
 clean:
-	rm -f srcs/*.o
+	rm -f *.o
+	make -C $(PRINTF) clean
 	@echo "$(BLUE)ft_pushswap object files cleaned!$(DEF_COLOR)"
 
 fclean: clean
 	rm -f $(PS)
+	make -C $(PRINTF) fclean
 	@echo "$(CYAN)ft_pushswap executable files cleaned!$(DEF_COLOR)"
 
 .PHONY: re all clean fclean bonus

@@ -79,7 +79,6 @@ void sort(node **stack_a, node **stack_b);
 int	is_superior(node *stack_b, node *stack_a);
 int	get_pos_of_smallest_index(node *stack_a);
 void	put_target_pos(node *stack_b, node *stack_a);
-
-
+void	put_target_pos_bis(node *tmp_b, node *stack_a, node *tmp_a, int min, int res);
 
 #endif
