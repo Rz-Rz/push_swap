@@ -6,7 +6,7 @@
 /*   By: kdhrif <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 16:19:34 by kdhrif            #+#    #+#             */
-/*   Updated: 2022/11/02 20:29:09 by kdhrif           ###   ########.fr       */
+/*   Updated: 2022/11/02 20:43:51 by kdhrif           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,21 +112,24 @@ void	do_actions(node **stack_a, node **stack_b, node *to_sort)
 // Output: void
 void	rotate_until_sorted(node **stack_a)
 {
-	node *curr;
-	int i;
+	int min_pos;
 
-	i = 0;
-	curr = *stack_a;
-	while (curr->next)
+	put_pos(*stack_a, NULL);
+	min_pos = get_pos_of_smallest_index(*stack_a); 
+	if (min_pos < lst_size(*stack_a) / 2)
 	{
-		if (curr->pos > curr->next->pos)
-			break ;
-		curr = curr->next;
-		i++;
+		while (min_pos > 0)
+		{
+			ra(stack_a);
+			min_pos--;
+		}
 	}
-	while (i > 0)
+	else
 	{
-		ra(stack_a);
-		i--;
+		while (min_pos < lst_size(*stack_a))
+		{
+			rra(stack_a);
+			min_pos++;
+		}
 	}
 }

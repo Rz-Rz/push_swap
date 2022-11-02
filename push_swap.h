@@ -88,5 +88,6 @@ int	compute_cost(node *node, int size);
 int	compute_cost_a(node *node_b, node *stack_a, int size);
 node	*find_cheapest_action(node *stack_b);
 void	do_actions(node **stack_a, node **stack_b, node *to_sort);
+void	rotate_until_sorted(node **stack_a);
 
 #endif
