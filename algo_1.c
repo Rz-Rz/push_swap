@@ -5,22 +5,42 @@
 // Input: node *stack_b - the linked list to put the target_pos in.
 //        node *stack_a - the linked list to use to evaluate the target_pos.
 // Output: void
-void	put_target_pos(node *stack_b, node *stack_a)
+void	put_target_pos(node *stack_a, node *stack_b)
 {
 	node *tmp_b;
 	node *tmp_a;
 	int res;
 	int min;
 
-	min = 500;
 	tmp_b = stack_b;
-	tmp_a = stack_a;
-	res = 0;
-	put_target_pos_bis(tmp_b, stack_a, tmp_a, min, res);
+	/* put_target_pos_bis(tmp_b, stack_a, tmp_a, min, res); */
+	while (tmp_b)
+	{
+		tmp_a = stack_a;
+		min = 500;
+		if (!is_superior(tmp_b, stack_a))
+		{
+			while (tmp_a)
+			{
+				res = ft_abs(tmp_b->index - tmp_a->index);
+				if (res < min && tmp_b->index < tmp_a->index)
+				{
+					min = res;
+					tmp_b->target_pos = tmp_a->pos;
+				}
+				tmp_a = tmp_a->next;
+			}
+		}
+		else 
+			tmp_b->target_pos = get_pos_of_smallest_index(stack_a);
+		/* printf("--NODE B--\n"); */
+		/* print_node(tmp_b); */
+		tmp_b = tmp_b->next;
+	}
 }
 
 
-// Function: put_target_pos
+// Function: put_target_pos_bis
 // Description: Put the target_pos of each node in stack_b. The target_pos correspond to the position it should hold in stack_a. To find the target_pos we seek in stack_a the index the closest but always superior to the index in stack_b. If the element in stack_b has an index greater than all elements of stack_a, we use as target_pos the smallest index in stack_a.
 // Input: node *stack_b - the linked list to put the target_pos in.
 //       node *stack_a - the linked list to use to evaluate the target_pos.
@@ -35,6 +55,7 @@ void	put_target_pos_bis(node *tmp_b, node *stack_a, node *tmp_a, int min, int re
 			while (tmp_a)
 			{
 				res = ft_abs(tmp_b->index - tmp_a->index);
+				printf("RES = %d\n", res);
 				if (res < min && tmp_b->index < tmp_a->index)
 				{
 					min = res;
@@ -111,6 +132,7 @@ void	put_costs(node *stack_a, node *stack_b)
 	while (tmp_b)
 	{
 		tmp_b->cost_b = compute_cost(tmp_b, size_b);
+		printf("HERE\n");
 		tmp_b->cost_a = compute_cost_a(tmp_b, stack_a, size_a);
 		tmp_b = tmp_b->next;
 	}

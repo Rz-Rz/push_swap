@@ -6,7 +6,7 @@
 /*   By: kdhrif <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 16:08:20 by kdhrif            #+#    #+#             */
-/*   Updated: 2022/11/02 20:13:53 by kdhrif           ###   ########.fr       */
+/*   Updated: 2022/11/07 15:35:57 by kdhrif           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,13 +115,30 @@ int push_swap(int ac, char **av) {
 	/* do_actions(&stack_a, &stack_b, find_cheapest_action(stack_b)); */
 	/* printf("stack_a after action\n"); */
 	/* print_stack(stack_a); */
+	/* node *to_sort; */
+	/* push_to_b(&stack_a, &stack_b); */
+	/* put_pos(stack_a, stack_b); */
+	/* put_index(stack_a, stack_b); */
+	/* put_target_pos(stack_a, stack_b); */
+	/* put_costs(stack_a, stack_b); */
+	/* to_sort = find_cheapest_action(stack_b); */
+	/* printf("to_sort\n"); */
+	/* print_node(to_sort); */
+	/* do_actions(&stack_a, &stack_b, to_sort); */
+	/* printf("stack_a\n"); */
+	/* print_stack(stack_a); */
+	/* printf("stack_b\n"); */
+	/* print_stack(stack_b); */
 	if (ac == 3)
 		sort_2(&stack_a);
 	else if (ac == 4)
 		sort_3(&stack_a);
 	else if ( ac > 4 && ac < 501)
 		sort(&stack_a, &stack_b);
-	print_stack(stack_a);
+	/* printf("stack_a\n"); */
+	/* print_stack(stack_a); */
+	/* printf("stack_b\n"); */
+	/* print_stack(stack_b); */
 
 	return (1);
 }

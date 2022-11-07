@@ -6,7 +6,7 @@
 /*   By: kdhrif <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 16:19:34 by kdhrif            #+#    #+#             */
-/*   Updated: 2022/11/02 20:43:51 by kdhrif           ###   ########.fr       */
+/*   Updated: 2022/11/07 15:49:10 by kdhrif           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	compute_cost(node *node, int size)
 	int cost;
 
 	cost = 0;
-	if (node->pos < size / 2)
+	if (node->pos <= size / 2)
 		cost = node->pos;
 	else
 	{
@@ -43,7 +43,6 @@ int	compute_cost_a(node *node_b, node *stack_a, int size)
 	int cost;
 
 	tmp_a = lst_search_target_pos(stack_a, node_b->target_pos);
-	printf("tmp_a = %p\n", tmp_a);
 	cost = compute_cost(tmp_a, size);
 	return (cost);
 }

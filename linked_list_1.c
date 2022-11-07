@@ -22,8 +22,10 @@ void lst_free(node* head)
 //Output: int - the size of the list
 int lst_size(node* head)
 {
-    int i = 0;
-    while (head != NULL)
+    int i;
+
+    i = 0;
+    while (head)
     {
 	head = head->next;
 	i++;
