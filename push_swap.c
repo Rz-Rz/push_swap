@@ -6,7 +6,7 @@
 /*   By: kdhrif <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 16:08:20 by kdhrif            #+#    #+#             */
-/*   Updated: 2022/11/07 15:35:57 by kdhrif           ###   ########.fr       */
+/*   Updated: 2022/11/09 20:26:59 by kdhrif           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,9 +140,23 @@ int push_swap(int ac, char **av) {
 }
 
 int main(int ac, char **av) {
-  int i = 0;
+  int i;
+  char** new_av;
+
+  i = 0;
   if (ac < 2)
     return (0);
+  printf("ac : %d\n", ac);
+  if (ac == 2) {
+	  /* printf("ac = %d", ft_cntwrds(av[1], ' ')); */
+	  ac = ft_cntwrds(av[1], ' ');
+	  new_av = master_parser(ac, av);
+	  i = push_swap(ac, new_av);
+	  if (i == -1)
+		  ft_printf("Error\n");
+	  return(0);
+  }
+
   i = push_swap(ac, av);
   if (i == -1)
     printf("Error\n");

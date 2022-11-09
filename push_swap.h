@@ -45,9 +45,10 @@ void put_index(node *stack_a, node *stack_b);
 // sorting_0.c
 void put_index_bis(node *stack_a, node *stack_b, int ac, int j, int *arr);
 
-// parsing.c
+// parsing_0.c
 int is_ordered(node *stack);
 int is_duplicate(node *stack);
+char	**master_parser(int ac, char **av);
 
 // action_b.c
 void sb(node **stack_b);
@@ -90,5 +91,11 @@ int	compute_cost_a(node *node_b, node *stack_a, int size);
 node	*find_cheapest_action(node *stack_b);
 void	do_actions(node **stack_a, node **stack_b, node *to_sort);
 void	rotate_until_sorted(node **stack_a);
+
+//ft_split.c
+char	**ft_split(char const *s, char c);
+char	*ft_strdupm(char *s, char c);
+int	ft_cntwrds(char const *s, char c);
+
 
 #endif
