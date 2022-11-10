@@ -18,7 +18,7 @@
 // Output: void
 void sort_2(node **stack_a) {
   if ((*stack_a)->value > (*stack_a)->next->value)
-    sa(stack_a);
+    sa(stack_a, 1);
 }
 
 // Function: sort_3
@@ -29,11 +29,11 @@ void sort_3(node **stack_a) {
   while (!is_ordered(*stack_a)) {
     if ((*stack_a)->index > (*stack_a)->next->index &&
         (*stack_a)->index > (*stack_a)->next->next->index)
-      ra(stack_a);
+      ra(stack_a, 1);
     else if ((*stack_a)->index > (*stack_a)->next->index)
-      sa(stack_a);
+      sa(stack_a, 1);
     else
-      rra(stack_a);
+      rra(stack_a, 1);
   }
 }
 

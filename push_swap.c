@@ -47,6 +47,7 @@ node *fill_stack_a(char **av) {
 // Description: Print the values of the linked list
 // Input: node *stack - the linked list
 // Output: void
+/*
 void print_stack(node *stack) {
   node *curr;
   if (!stack) {
@@ -81,6 +82,7 @@ void print_node(node *n) {
   printf("target pos : %d\n", curr->target_pos);
   printf("--- node end ---\n");
 }
+*/
 
 int push_swap(int ac, char **av) {
   node *stack_a;
@@ -101,18 +103,18 @@ int push_swap(int ac, char **av) {
 
 int main(int ac, char **av) {
   int i;
-  char** parsed_av;
+  char **parsed_av;
 
   i = 0;
   if (ac < 2)
     return (0);
   parsed_av = master_parser(av);
-  while (parsed_av[i]) 
-	  i++;
+  while (parsed_av[i])
+    i++;
   ac = i;
   i = push_swap(ac, parsed_av);
   if (i == -1)
-	  ft_printf("Error\n");
+    ft_printf("Error\n");
 
   return (0);
 }
