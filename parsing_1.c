@@ -6,23 +6,31 @@
 /*   By: kdhrif <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 15:54:54 by kdhrif            #+#    #+#             */
-/*   Updated: 2022/11/09 20:13:44 by kdhrif           ###   ########.fr       */
+/*   Updated: 2022/11/10 17:55:02 by kdhrif           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // function: master_parser
-// Description: Take the av and split it using ft_split function 
+// Description: Take the av, strjoin everything starting at av[1], then split it using ft_split function 
 // input: char **av
 // output: char **
-char	**master_parser(int ac, char **av)
+char **master_parser(char **av) 
 {
-	char	**split;
+  char *str;
+  char **tab;
+  int i;
 
-	if (ac == 2) 
-		split = ft_split(av[1], ' ');
-	else
-		return(av);
-	return (split);
+  i = 1;
+  str = ft_strdup(av[1]);
+  while (av[i + 1]) 
+  {
+    str = ft_strjoin(str, " ");
+    str = ft_strjoin(str, av[i + 1]);
+    i++;
+  }
+  tab = ft_split(str, ' ');
+  free(str);
+  return (tab);
 }

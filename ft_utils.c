@@ -6,7 +6,7 @@
 /*   By: kdhrif <kdhrif@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 12:27:40 by kdhrif            #+#    #+#             */
-/*   Updated: 2022/11/01 15:18:30 by kdhrif           ###   ########.fr       */
+/*   Updated: 2022/11/10 18:03:18 by kdhrif           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,26 @@ int ft_abs(int nb)
 	if (nb < 0)
 		return (-nb);
 	return (nb);
+}
+
+// Function: ft_strdup
+// Description: Duplicates a string.
+// Parameters: char *str - the string to duplicate.
+// Return: The duplicated string.
+char *ft_strdup(char *str)
+{
+	char *dup;
+	int i;
+
+	i = 0;
+	dup = malloc(sizeof(char) * (ft_strlen(str) + 1));
+	if (!dup)
+		return (NULL);
+	while (str[i])
+	{
+		dup[i] = str[i];
+		i++;
+	}
+	dup[i] = '\0';
+	return (dup);
 }

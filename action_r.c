@@ -6,8 +6,9 @@
 // Output: void
 void ss(node **stack_a, node **stack_b) 
 {
-  sa(stack_a);
-  sb(stack_b);
+  sa(stack_a, 0);
+  sb(stack_b, 0);
+  ft_printf("ss\n");
 }
 
 // Function: rr
@@ -16,8 +17,9 @@ void ss(node **stack_a, node **stack_b)
 // Output: void
 void rr(node **stack_a, node **stack_b) 
 {
-  ra(stack_a);
-  rb(stack_b);
+  ra(stack_a, 0);
+  rb(stack_b, 0);
+  ft_printf("rr\n");
 }
 
 // Function: rrr
@@ -26,6 +28,7 @@ void rr(node **stack_a, node **stack_b)
 // Output: void
 void rrr(node **stack_a, node **stack_b) 
 {
-  rra(stack_a);
-  rrb(stack_b);
+  rra(stack_a, 0);
+  rrb(stack_b, 0);
+  ft_printf("rrr\n");
 }

@@ -6,7 +6,7 @@
 /*   By: kdhrif <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 16:19:34 by kdhrif            #+#    #+#             */
-/*   Updated: 2022/11/07 15:49:10 by kdhrif           ###   ########.fr       */
+/*   Updated: 2022/11/10 19:05:23 by kdhrif           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,18 +88,18 @@ void	do_actions(node **stack_a, node **stack_b, node *to_sort)
 	while (i < ft_abs(to_sort->cost_a))
 	{
 		if (to_sort->cost_a > 0)
-			ra(stack_a);
+			ra(stack_a, 1);
 		else
-			rra(stack_a);
+			rra(stack_a, 1);
 		i++;
 	}
 	i = 0;
 	while (i < ft_abs(to_sort->cost_b))
 	{
 		if (to_sort->cost_b > 0)
-			rb(stack_b);
+			rb(stack_b, 1);
 		else
-			rrb(stack_b);
+			rrb(stack_b, 1);
 		i++;
 	}
 	pa(stack_a, stack_b);

@@ -20,7 +20,7 @@ void pb(node **stack_a, node **stack_b) {
 // Description: Swap the first two elements of stack_b
 // Input: node **stack_b - the stack to swap
 // Output: void
-void sb(node **stack_b) {
+void sb(node **stack_b, int toggle) {
   node *tmp;
 
   if (!(*stack_b) || !(*stack_b)->next)
@@ -29,14 +29,15 @@ void sb(node **stack_b) {
   (*stack_b)->next = tmp->next;
   tmp->next = *stack_b;
   *stack_b = tmp;
-  ft_printf("sb\n");
+  if (toggle)
+    ft_printf("sb\n");
 }
 
 // Function rb
 // Description: Rotate the stack_b one element up.
 // Input: node **stack_b - the stack to rotate
 // Output: void
-void rb(node **stack_b) {
+void rb(node **stack_b, int toggle) {
   node *tmp;
 
   if (!(*stack_b) || !(*stack_b)->next)
@@ -47,14 +48,15 @@ void rb(node **stack_b) {
   tmp->next = *stack_b;
   *stack_b = (*stack_b)->next;
   tmp->next->next = NULL;
-  ft_printf("rb\n");
+  if (toggle)
+	  ft_printf("rb\n");
 }
 
 // Function rrb
 // Description: Rotate the stack_b one element down.
 // Input: node **stack_b - the stack to rotate
 // Output: void
-void rrb(node **stack_b) {
+void rrb(node **stack_b, int toggle) {
   node *tmp;
 
   if (!(*stack_b) || !(*stack_b)->next)
@@ -65,5 +67,6 @@ void rrb(node **stack_b) {
   tmp->next->next = *stack_b; // *stack_b is now the second element. 
   *stack_b = tmp->next; // *stack_b is assigned to what used to be the last element, which is now the first.
   tmp->next = NULL; // What used to point to the last element, now points to NULL, as the new last element.
-  ft_printf("rrb\n");
+  if (toggle)
+	  ft_printf("rrb\n");
 }

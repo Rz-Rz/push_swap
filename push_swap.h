@@ -42,24 +42,26 @@ int *nodeval_to_int(node *stack_a, node *stack_b);
 void swap(int *a, int *b);
 void put_index(node *stack_a, node *stack_b);
 
-// sorting_0.c
+// sorting_1.c
 void put_index_bis(node *stack_a, node *stack_b, int ac, int j, int *arr);
 
 // parsing_0.c
 int is_ordered(node *stack);
 int is_duplicate(node *stack);
-char	**master_parser(int ac, char **av);
+
+// parsing_1.c
+char	**master_parser(char **av);
 
 // action_b.c
-void sb(node **stack_b);
-void rb(node **stack_b);
+void sb(node **stack_b, int toggle);
+void rb(node **stack_b, int toggle);
 void pb(node **stack_a, node **stack_b);
-void rrb(node **stack_b);
+void rrb(node **stack_b, int toggle);
 
 // action_a.c
-void rra(node **stack_a);
-void ra(node **stack_a);
-void sa(node **stack_a);
+void rra(node **stack_a, int toggle);
+void ra(node **stack_a, int toggle);
+void sa(node **stack_a, int toggle);
 void pa(node **stack_a, node **stack_b);
 
 // action_r.c
@@ -70,6 +72,8 @@ void ss(node **stack_a, node **stack_b);
 // ft_utils.c
 int ft_atoi(const char *nptr, int *error);
 int ft_abs(int nb);
+int ft_strlen(char *str);
+char *ft_strdup(char *str);
 
 //algo_0.c 
 void sort_3(node **stack_a);
@@ -96,6 +100,9 @@ void	rotate_until_sorted(node **stack_a);
 char	**ft_split(char const *s, char c);
 char	*ft_strdupm(char *s, char c);
 int	ft_cntwrds(char const *s, char c);
+
+//ft_strjoin.c
+char	*ft_strjoin(char const *s1, char const *s2);
 
 
 #endif

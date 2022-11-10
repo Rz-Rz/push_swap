@@ -20,7 +20,7 @@ void pa(node **stack_a, node **stack_b) {
 // Description: Swap the first two elements of stack_a
 // Input: node **stack_a - the stack to swap
 // Output: void
-void sa(node **stack_a) {
+void sa(node **stack_a, int toggle) {
   node *tmp;
 
   if (!(*stack_a) || !(*stack_a)->next)
@@ -29,14 +29,15 @@ void sa(node **stack_a) {
   (*stack_a)->next = tmp->next;
   tmp->next = *stack_a;
   *stack_a = tmp;
-  ft_printf("sa\n");
+  if (toggle)
+    ft_printf("sa\n");
 }
 
 // Function ra
 // Description: Rotate the stack_a one element up.
 // Input: node **stack_a - the stack to rotate
 // Output: void
-void ra(node **stack_a) {
+void ra(node **stack_a, int toggle) {
   node *tmp;
 
   if (!(*stack_a) || !(*stack_a)->next)
@@ -47,14 +48,15 @@ void ra(node **stack_a) {
   tmp->next = *stack_a;
   *stack_a = (*stack_a)->next;
   tmp->next->next = NULL;
-  ft_printf("ra\n");
+  if (toggle)
+    ft_printf("ra\n");
 }
 
 // Function rra
 // Description: Rotate the stack_a one element down.
 // Input: node **stack_a - the stack to rotate
 // Output: void
-void rra(node **stack_a) {
+void rra(node **stack_a, int toggle) {
   node *tmp;
 
   if (!(*stack_a) || !(*stack_a)->next)
@@ -65,5 +67,6 @@ void rra(node **stack_a) {
   tmp->next->next = *stack_a; // *stack_a is now the second element. 
   *stack_a = tmp->next; // *stack_a is assigned to what used to be the last element, which is now the first.
   tmp->next = NULL; // What used to point to the last element, now points to NULL, as the new last element.
-  ft_printf("rra\n");
+  if (toggle)
+    ft_printf("rra\n");
 }
