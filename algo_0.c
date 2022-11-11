@@ -6,7 +6,7 @@
 /*   By: kdhrif <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 13:08:13 by kdhrif            #+#    #+#             */
-/*   Updated: 2022/11/10 18:34:45 by kdhrif           ###   ########.fr       */
+/*   Updated: 2022/11/11 15:17:03 by kdhrif           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void sort(node **stack_a, node **stack_b) {
   node *to_sort;
 
   push_to_b(stack_a, stack_b);
+
   while (*stack_b) {
     put_pos(*stack_a, *stack_b);
     put_index(*stack_a, *stack_b);
@@ -76,12 +77,15 @@ void push_to_b(node **stack_a, node **stack_b) {
   int size;
 
   size = lst_size(*stack_a);
+
+  put_index(*stack_a, *stack_b);
+  median_sorter(stack_a, stack_b, size/2, size);
   i = 0;
+  size = lst_size(*stack_a);
   while (i < size - 3) {
     pb(stack_a, stack_b);
     i++;
   }
-  put_index(*stack_a, *stack_b);
   sort_3(stack_a);
   put_target_pos(*stack_a, *stack_b);
 }

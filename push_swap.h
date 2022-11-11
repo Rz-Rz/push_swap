@@ -1,9 +1,9 @@
 #ifndef PUSH_SWAP_H
 #define PUSH_SWAP_H
-#define NULL ((char *)0)
 #include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include "get_next_line.h"
 
 typedef struct node {
   struct node *next;
@@ -14,6 +14,7 @@ typedef struct node {
   int cost_a;
   int cost_b;
 } node;
+
 
 // ft_printf 
 int	ft_printf(const char *format, ...);
@@ -65,15 +66,16 @@ void sa(node **stack_a, int toggle);
 void pa(node **stack_a, node **stack_b);
 
 // action_r.c
-void rrr(node **stack_a, node **stack_b);
-void rr(node **stack_a, node **stack_b);
-void ss(node **stack_a, node **stack_b);
+void rrr(node **stack_a, node **stack_b, int toggle);
+void rr(node **stack_a, node **stack_b, int toggle);
+void ss(node **stack_a, node **stack_b, int toggle);
 
 // ft_utils.c
 int ft_atoi(const char *nptr, int *error);
 int ft_abs(int nb);
 int ft_strlen(char *str);
 char *ft_strdup(char *str);
+int ft_strcmp(char *s1, char *s2);
 
 //algo_0.c 
 void sort_3(node **stack_a);
@@ -96,6 +98,11 @@ node	*find_cheapest_action(node *stack_b);
 void	do_actions(node **stack_a, node **stack_b, node *to_sort);
 void	rotate_until_sorted(node **stack_a);
 
+//algo_3.c 
+void r_actions_same_sign(node **stack_a, node **stack_b, node *to_sort);
+void median_sorter(node **stack_a, node **stack_b, int median, int size);
+
+
 //ft_split.c
 char	**ft_split(char const *s, char c);
 char	*ft_strdupm(char *s, char c);
@@ -103,6 +110,11 @@ int	ft_cntwrds(char const *s, char c);
 
 //ft_strjoin.c
 char	*ft_strjoin(char const *s1, char const *s2);
+
+// checker.c
+int execute_instruction(char *line, node **stack_a, node **stack_b);
+int checker(char **argv);
+
 
 
 #endif

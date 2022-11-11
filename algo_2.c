@@ -6,7 +6,7 @@
 /*   By: kdhrif <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 16:19:34 by kdhrif            #+#    #+#             */
-/*   Updated: 2022/11/10 19:05:23 by kdhrif           ###   ########.fr       */
+/*   Updated: 2022/11/11 14:48:43 by kdhrif           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ void do_actions(node **stack_a, node **stack_b, node *to_sort) {
   int i;
 
   i = 0;
+  r_actions_same_sign(stack_a, stack_b, to_sort);
   if (to_sort->cost_a > 0 && to_sort->cost_b > 0) {
   }
 

@@ -6,7 +6,7 @@
 /*   By: kdhrif <kdhrif@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 12:27:40 by kdhrif            #+#    #+#             */
-/*   Updated: 2022/11/10 18:03:18 by kdhrif           ###   ########.fr       */
+/*   Updated: 2022/11/11 20:26:37 by kdhrif           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,4 +72,25 @@ char *ft_strdup(char *str)
 	}
 	dup[i] = '\0';
 	return (dup);
+}
+
+// Function: ft_strcmp
+// Description: Compares two strings.
+// Parameters: char *s1 - the first string to compare.
+// 	   char *s2 - the second string to compare.
+// Return: 0 if the strings are identical, 1 if they are different.
+int ft_strcmp(char *s1, char *s2)
+{
+	int i;
+
+	i = 0;
+	while (s1[i] && s2[i])
+	{
+		if (s1[i] != s2[i])
+			return (1);
+		i++;
+	}
+	if (s1[i] != s2[i])
+		return (1);
+	return (0);
 }

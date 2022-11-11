@@ -6,7 +6,7 @@
 /*   By: kdhrif <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 16:08:20 by kdhrif            #+#    #+#             */
-/*   Updated: 2022/11/10 18:23:25 by kdhrif           ###   ########.fr       */
+/*   Updated: 2022/11/11 21:25:00 by kdhrif           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ node *fill_stack_a(char **av) {
 // Description: Print the values of the linked list
 // Input: node *stack - the linked list
 // Output: void
-/*
 void print_stack(node *stack) {
   node *curr;
   if (!stack) {
@@ -82,7 +81,6 @@ void print_node(node *n) {
   printf("target pos : %d\n", curr->target_pos);
   printf("--- node end ---\n");
 }
-*/
 
 int push_swap(int ac, char **av) {
   node *stack_a;
