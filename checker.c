@@ -6,7 +6,7 @@
 /*   By: kdhrif <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 18:19:49 by kdhrif            #+#    #+#             */
-/*   Updated: 2022/11/11 21:22:17 by kdhrif           ###   ########.fr       */
+/*   Updated: 2022/11/11 21:53:37 by kdhrif           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,12 @@ int checker(char **argv)
   while (argv[i])
     i++;
   stack_a = fill_stack_a(argv);
+  if (stack_a == NULL)
+    return (-1);
   line = get_next_line(0);
   while (line) {
     if (execute_instruction(line, &stack_a, &stack_b) == -1)
-      return (-1);
+	    return (-1);
     free(line);
   line = get_next_line(0);
   }

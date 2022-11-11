@@ -6,7 +6,7 @@
 /*   By: kdhrif <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 13:08:13 by kdhrif            #+#    #+#             */
-/*   Updated: 2022/11/11 15:17:03 by kdhrif           ###   ########.fr       */
+/*   Updated: 2022/11/11 22:11:09 by kdhrif           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void sort_2(node **stack_a) {
 // Input: node **stack_a - the stack to sort
 // Output: void
 void sort_3(node **stack_a) {
+	put_index(*stack_a, NULL);
   while (!is_ordered(*stack_a)) {
     if ((*stack_a)->index > (*stack_a)->next->index &&
         (*stack_a)->index > (*stack_a)->next->next->index)
