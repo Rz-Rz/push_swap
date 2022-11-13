@@ -12,40 +12,39 @@
 
 #include "push_swap.h"
 
-
-// Function: ft_atoi 
+// Function: ft_atoi
 // Description: Converts a string to an integer. Modify an int pointer is the input is invalid.
 // Parameters: char *str - the string to convert.
 //             int *error - pointer to an int to modify if the input is invalid.
 // Return: The integer value of the string.
-int ft_atoi(const char *nptr, int *error) 
+int	ft_atoi(const char *nptr, int *error)
 {
-  long long nb;
-  int neg;
+	long long	nb;
+	int			neg;
 
-  nb = 0;
-  neg = 0;
-  while ((*nptr >= 9 && *nptr <= 13) || (*nptr == ' '))
-    nptr++;
-  if (*nptr == '-' || *nptr == '+')
-    if (*nptr++ == '-')
-      neg++;
-  while (*nptr >= '0' && *nptr <= '9')
-    nb = nb * 10 + *nptr++ - '0';
-  if (neg)
-    nb *= -1;
-  if (*nptr != '\0')
-	  *error = 1;
-  if (nb > 2147483647 || nb < -2147483648)
-	  *error = 1;
-  return ((int)nb);
+	nb = 0;
+	neg = 0;
+	while ((*nptr >= 9 && *nptr <= 13) || (*nptr == ' '))
+		nptr++;
+	if (*nptr == '-' || *nptr == '+')
+		if (*nptr++ == '-')
+			neg++;
+	while (*nptr >= '0' && *nptr <= '9')
+		nb = nb * 10 + *nptr++ - '0';
+	if (neg)
+		nb *= -1;
+	if (*nptr != '\0')
+		*error = 1;
+	if (nb > 2147483647 || nb < -2147483648)
+		*error = 1;
+	return ((int)nb);
 }
 
 // Function: ft_abs
 // Description: Returns the absolute value of an integer.
 // Parameters: int nb - the integer to convert.
 // Return: The absolute value of the integer.
-int ft_abs(int nb)
+int	ft_abs(int nb)
 {
 	if (nb < 0)
 		return (-nb);
@@ -56,10 +55,10 @@ int ft_abs(int nb)
 // Description: Duplicates a string.
 // Parameters: char *str - the string to duplicate.
 // Return: The duplicated string.
-char *ft_strdup(char *str)
+char	*ft_strdup(char *str)
 {
-	char *dup;
-	int i;
+	char	*dup;
+	int		i;
 
 	i = 0;
 	dup = malloc(sizeof(char) * (ft_strlen(str) + 1));
@@ -77,11 +76,11 @@ char *ft_strdup(char *str)
 // Function: ft_strcmp
 // Description: Compares two strings.
 // Parameters: char *s1 - the first string to compare.
-// 	   char *s2 - the second string to compare.
+// 		char *s2 - the second string to compare.
 // Return: 0 if the strings are identical, 1 if they are different.
-int ft_strcmp(char *s1, char *s2)
+int	ft_strcmp(char *s1, char *s2)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (s1[i] && s2[i])

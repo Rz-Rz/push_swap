@@ -13,7 +13,6 @@ void	put_target_pos(node *stack_a, node *stack_b)
 	int min;
 
 	tmp_b = stack_b;
-	/* put_target_pos_bis(tmp_b, stack_a, tmp_a, min, res); */
 	while (tmp_b)
 	{
 		tmp_a = stack_a;

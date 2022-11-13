@@ -56,14 +56,14 @@ char	**master_parser(char **av);
 // action_b.c
 void sb(node **stack_b, int toggle);
 void rb(node **stack_b, int toggle);
-void pb(node **stack_a, node **stack_b);
+void pb(node **stack_a, node **stack_b, int toggle);
 void rrb(node **stack_b, int toggle);
 
 // action_a.c
 void rra(node **stack_a, int toggle);
 void ra(node **stack_a, int toggle);
 void sa(node **stack_a, int toggle);
-void pa(node **stack_a, node **stack_b);
+void pa(node **stack_a, node **stack_b, int toggle);
 
 // action_r.c
 void rrr(node **stack_a, node **stack_b, int toggle);
