@@ -16,7 +16,7 @@ typedef struct node {
 } node;
 
 
-// ft_printf 
+// ft_printf
 int	ft_printf(const char *format, ...);
 
 // linked_list_0.c
@@ -76,8 +76,9 @@ int ft_abs(int nb);
 int ft_strlen(char *str);
 char *ft_strdup(char *str);
 int ft_strcmp(char *s1, char *s2);
+void free_str(char **av);
 
-//algo_0.c 
+//algo_0.c
 void sort_3(node **stack_a);
 void sort_2(node **stack_a);
 void push_to_b(node **stack_a, node **stack_b);
@@ -98,7 +99,7 @@ node	*find_cheapest_action(node *stack_b);
 void	do_actions(node **stack_a, node **stack_b, node *to_sort);
 void	rotate_until_sorted(node **stack_a);
 
-//algo_3.c 
+//algo_3.c
 void r_actions_same_sign(node **stack_a, node **stack_b, node *to_sort);
 void median_sorter(node **stack_a, node **stack_b, int median, int size);
 

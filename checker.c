@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kdhrif <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: kdhrif <kdhrif@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/11 18:19:49 by kdhrif            #+#    #+#             */
-/*   Updated: 2022/11/13 21:57:15 by kdhrif           ###   ########.fr       */
+/*   Created: 2022/11/14 16:26:12 by kdhrif            #+#    #+#             */
+/*   Updated: 2022/11/14 17:05:56 by kdhrif           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "get_next_line.h"
 #include "push_swap.h"
 
@@ -43,10 +42,7 @@ int	checker(char **argv)
 		line = get_next_line(0);
 	}
 	if (is_ordered(stack_a) == 1)
-	{
-					printf("HERE\n");
 					ft_printf("OK\n");
-	}
 	lst_free(stack_a);
 	return (1);
 }
@@ -105,13 +101,14 @@ node	*fill_stack_a(char **av)
 	while (av[++i])
 	{
 		curr->value = ft_atoi(av[i], &error);
-		if (!av[i])
+		if (!av[i + 1])
 			break ;
 		curr->next = malloc(sizeof(node));
 		curr = curr->next;
 	}
 	curr->next = NULL;
 	error += is_duplicate(stack_a);
+	free_str(av);
 	if (error)
 	{
 		lst_free(stack_a);

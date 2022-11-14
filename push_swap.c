@@ -6,7 +6,7 @@
 /*   By: kdhrif <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 16:08:20 by kdhrif            #+#    #+#             */
-/*   Updated: 2022/11/11 21:25:00 by kdhrif           ###   ########.fr       */
+/*   Updated: 2022/11/14 16:58:26 by kdhrif           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ node	*fill_stack_a(char **av)
 	}
 	curr->next = NULL;
 	error += is_duplicate(stack_a);
+	free_str(av);
 	if (error)
 	{
 		lst_free(stack_a);
