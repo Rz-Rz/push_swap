@@ -62,29 +62,29 @@ void	add_to_stash(t_list **stash, char *buff, int readval)
 {
 	int		i;
 	t_list	*current;
-	t_list	*new_node;
+	t_list	*new_t_node;
 
-	new_node = malloc(sizeof(t_list));
-	if (new_node == NULL)
+	new_t_node = malloc(sizeof(t_list));
+	if (new_t_node == NULL)
 		return ;
-	new_node->next = NULL;
-	new_node->content = malloc(sizeof(char) * (readval + 1));
-	if (!new_node->content)
+	new_t_node->next = NULL;
+	new_t_node->content = malloc(sizeof(char) * (readval + 1));
+	if (!new_t_node->content)
 		return ;
 	i = 0;
 	while (buff[i] && i < readval)
 	{
-		new_node->content[i] = buff[i];
+		new_t_node->content[i] = buff[i];
 		i++;
 	}
-	new_node->content[i] = '\0';
+	new_t_node->content[i] = '\0';
 	if (*stash == NULL)
 	{
-		*stash = new_node;
+		*stash = new_t_node;
 		return ;
 	}
 	current = lstlast(*stash);
-	current->next = new_node;
+	current->next = new_t_node;
 }
 
 void	extract_line(t_list *stash, char **line)
@@ -118,28 +118,28 @@ void	extract_line(t_list *stash, char **line)
 void	clean_stash(t_list **stash)
 {
 	t_list	*last;
-	t_list	*clean_node;
+	t_list	*clean_t_node;
 	int		i;
 	int		j;
 
-	clean_node = malloc(sizeof(t_list));
-	if (!clean_node)
+	clean_t_node = malloc(sizeof(t_list));
+	if (!clean_t_node)
 		return ;
-	clean_node->next = NULL;
+	clean_t_node->next = NULL;
 	last = lstlast(*stash);
 	i = 0;
 	while (last->content[i] && last->content[i] != '\n')
 		i++;
 	if (last->content && last->content[i] == '\n')
 		i++;
-	clean_node->content = malloc(sizeof(char) * (ft_strlen(last->content) - i
+	clean_t_node->content = malloc(sizeof(char) * (ft_strlen(last->content) - i
 				+ 1));
-	if (!clean_node->content)
+	if (!clean_t_node->content)
 		return ;
 	j = 0;
 	while (last->content[i])
-		clean_node->content[j++] = last->content[i++];
-	clean_node->content[j] = '\0';
+		clean_t_node->content[j++] = last->content[i++];
+	clean_t_node->content[j] = '\0';
 	free_stash(*stash);
-	*stash = clean_node;
+	*stash = clean_t_node;
 }

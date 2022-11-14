@@ -20,8 +20,8 @@
 // Output: int - 0 if the stack_a is sorted, -1 if there is an error.
 int	checker(char **argv)
 {
-	node	*stack_a;
-	node	*stack_b;
+	t_node	*stack_a;
+	t_node	*stack_b;
 	char	*line;
 	int		i;
 
@@ -42,7 +42,7 @@ int	checker(char **argv)
 		line = get_next_line(0);
 	}
 	if (is_ordered(stack_a) == 1)
-					ft_printf("OK\n");
+		ft_printf("OK\n");
 	lst_free(stack_a);
 	return (1);
 }
@@ -50,11 +50,11 @@ int	checker(char **argv)
 // Function: execute_instruction
 // Description: execute the passed instruction.
 // Input: char *line - the instruction to execute.
-//      node **stack_a - the stack_a.
-//      node **stack_b - the stack_b.
+//      t_node **stack_a - the stack_a.
+//      t_node **stack_b - the stack_b.
 //      int *i - the number of instructions executed.
 // Output: int - 0 if the instruction is valid, -1 if there is an error.
-int	execute_instruction(char *line, node **stack_a, node **stack_b)
+int	execute_instruction(char *line, t_node **stack_a, t_node **stack_b)
 {
 	if (ft_strcmp(line, "sa\n") == 0)
 		sa(stack_a, 0);
@@ -86,24 +86,24 @@ int	execute_instruction(char *line, node **stack_a, node **stack_b)
 // Function: fill_stack_a
 // Description: Take all the argument in av, transform them into int and put
 // them in a linked list. Input: int ac - the number of arguments, char **av -
-// the arguments Output: node * - the linked list
-node	*fill_stack_a(char **av)
+// the arguments Output: t_node * - the linked list
+t_node	*fill_stack_a(char **av)
 {
-	node	*stack_a;
-	node	*curr;
+	t_node	*stack_a;
+	t_node	*curr;
 	int		i;
 	int		error;
 
 	error = 0;
 	i = -1;
-	stack_a = malloc(sizeof(node));
+	stack_a = malloc(sizeof(t_node));
 	curr = stack_a;
 	while (av[++i])
 	{
 		curr->value = ft_atoi(av[i], &error);
 		if (!av[i + 1])
 			break ;
-		curr->next = malloc(sizeof(node));
+		curr->next = malloc(sizeof(t_node));
 		curr = curr->next;
 	}
 	curr->next = NULL;

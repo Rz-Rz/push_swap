@@ -1,12 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parsing_0.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kdhrif <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/14 18:44:27 by kdhrif            #+#    #+#             */
+/*   Updated: 2022/11/14 18:44:29 by kdhrif           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "push_swap.h"
 
 // Function: is_ordered
 // Description: Checks if the stack is in correct order.
 // Return: 1 if ordered, 0 if not.
-// Parameters: node *stack
-int	is_ordered(node *stack)
+// Parameters: t_node *stack
+int	is_ordered(t_node *stack)
 {
-	node	*tmp;
+	t_node	*tmp;
 
 	tmp = stack;
 	while (tmp->next)
@@ -21,11 +32,11 @@ int	is_ordered(node *stack)
 // Function: is_duplicate
 // Description: Checks if the stack contains duplicates.
 // Return: 1 if duplicate, 0 if not.
-// Parameters: node *stack
-int	is_duplicate(node *stack)
+// Parameters: t_node *stack
+int	is_duplicate(t_node *stack)
 {
-	node	*tmp;
-	node	*tmp2;
+	t_node	*tmp;
+	t_node	*tmp2;
 
 	tmp = stack;
 	while (tmp->next)

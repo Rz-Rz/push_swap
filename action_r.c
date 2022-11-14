@@ -14,9 +14,9 @@
 
 // Function: ss
 // Description: Swap the first two elements of stack_a and stack_b
-// Input: node **stack_a - the stack to swap, node **stack_b - the stack to swap
+// Input: t_node **stack_a - the stack to swap, t_node **stack_b - the stack to swap
 // Output: void
-void	ss(node **stack_a, node **stack_b, int toggle)
+void	ss(t_node **stack_a, t_node **stack_b, int toggle)
 {
 	sa(stack_a, 0);
 	sb(stack_b, 0);
@@ -26,9 +26,9 @@ void	ss(node **stack_a, node **stack_b, int toggle)
 
 // Function: rr
 // Description: Rotate the stack_a and stack_b one element up.
-// Input: node **stack_a - the stack to rotate, node **stack_b - the stack to
+// Input: t_node **stack_a - the stack to rotate, t_node **stack_b - the stack to
 // Output: void
-void	rr(node **stack_a, node **stack_b, int toggle)
+void	rr(t_node **stack_a, t_node **stack_b, int toggle)
 {
 	ra(stack_a, 0);
 	rb(stack_b, 0);
@@ -38,9 +38,9 @@ void	rr(node **stack_a, node **stack_b, int toggle)
 
 // Function: rrr
 // Description: Rotate the stack_a and stack_b one element down.
-// Input: node **stack_a - the stack to rotate, node **stack_b - the stack to
+// Input: t_node **stack_a - the stack to rotate, t_node **stack_b - the stack to
 // Output: void
-void	rrr(node **stack_a, node **stack_b, int toggle)
+void	rrr(t_node **stack_a, t_node **stack_b, int toggle)
 {
 	rra(stack_a, 0);
 	rrb(stack_b, 0);

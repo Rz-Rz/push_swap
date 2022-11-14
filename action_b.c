@@ -1,12 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   action_b.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kdhrif <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/14 18:44:41 by kdhrif            #+#    #+#             */
+/*   Updated: 2022/11/14 20:24:20 by kdhrif           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "push_swap.h"
 
 // Function pb
 // Description: Push the first element of stack_a to stack_b
-// Input: node **stack_a - the stack to push from, node **stack_b - the stack to
+// Input: t_node **stack_a - the stack to push from, t_node **stack_b - the stack to
 // push to Output: void
-void	pb(node **stack_a, node **stack_b, int toggle)
+void	pb(t_node **stack_a, t_node **stack_b, int toggle)
 {
-	node	*tmp;
+	t_node	*tmp;
 
 	if (!(*stack_a))
 		return ;
@@ -20,11 +31,11 @@ void	pb(node **stack_a, node **stack_b, int toggle)
 
 // Function sb
 // Description: Swap the first two elements of stack_b
-// Input: node **stack_b - the stack to swap
+// Input: t_node **stack_b - the stack to swap
 // Output: void
-void	sb(node **stack_b, int toggle)
+void	sb(t_node **stack_b, int toggle)
 {
-	node	*tmp;
+	t_node	*tmp;
 
 	if (!(*stack_b) || !(*stack_b)->next)
 		return ;
@@ -38,11 +49,11 @@ void	sb(node **stack_b, int toggle)
 
 // Function rb
 // Description: Rotate the stack_b one element up.
-// Input: node **stack_b - the stack to rotate
+// Input: t_node **stack_b - the stack to rotate
 // Output: void
-void	rb(node **stack_b, int toggle)
+void	rb(t_node **stack_b, int toggle)
 {
-	node	*tmp;
+	t_node	*tmp;
 
 	if (!(*stack_b) || !(*stack_b)->next)
 		return ;
@@ -56,22 +67,22 @@ void	rb(node **stack_b, int toggle)
 		ft_printf("rb\n");
 }
 
-// Function rrb
+/* Function rrb
 // Description: Rotate the stack_b one element down.
-// Input: node **stack_b - the stack to rotate
-// Output: void
-void	rrb(node **stack_b, int toggle)
+// Input: t_node **stack_b - the stack to rotate
+// Output: void */
+void	rrb(t_node **stack_b, int toggle)
 {
-	node	*tmp;
+	t_node	*tmp;
 
 	if (!(*stack_b) || !(*stack_b)->next)
 		return ;
 	tmp = *stack_b;
 	while (tmp->next->next)
 		tmp = tmp->next;
-	tmp->next->next = *stack_b; // *stack_b is now the second element.
+	tmp->next->next = *stack_b;
 	*stack_b = tmp->next;
-	tmp->next = NULL;           // What used to point to the last element,
+	tmp->next = NULL;
 	if (toggle)
 		ft_printf("rrb\n");
 }

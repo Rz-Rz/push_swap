@@ -15,12 +15,12 @@
 // Function: put_index_bis
 // Description: Put the index, the place the number should have,
 //	in the linked list.
-// Input: node *stack_a - the linked list
-//       node *stack_b - the linked list
+// Input: t_node *stack_a - the linked list
+//       t_node *stack_b - the linked list
 // Output: void
-void	put_index_bis(node *stack_a, node *stack_b, int ac, int j, int *arr)
+void	put_index_bis(t_node *stack_a, t_node *stack_b, int ac, int j, int *arr)
 {
-	node	*curr;
+	t_node	*curr;
 
 	while (j < ac)
 	{

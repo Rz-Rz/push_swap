@@ -6,7 +6,7 @@
 /*   By: kdhrif <kdhrif@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 21:29:24 by kdhrif            #+#    #+#             */
-/*   Updated: 2022/11/13 21:30:08 by kdhrif           ###   ########.fr       */
+/*   Updated: 2022/11/14 20:24:40 by kdhrif           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -24,12 +24,12 @@ void	swap(int *a, int *b)
 	*b = tmp;
 }
 
-// Function: nodeval_to_int
-// Description: Take all the values from the node linked list and puts them in
-// an int array. Input: node *stack - the list to take values from.
+// Function: t_nodeval_to_int
+// Description: Take all the values from the t_node linked list and puts them in
+// an int array. Input: t_node *stack - the list to take values from.
 //        int ac - the argument count
 // Output: int * - the int array.
-int	*nodeval_to_int(node *stack_a, node *stack_b)
+int	*t_nodeval_to_int(t_node *stack_a, t_node *stack_b)
 {
 	int	*arr;
 	int	i;
@@ -58,7 +58,6 @@ int	*nodeval_to_int(node *stack_a, node *stack_b)
 
 // Function: partition
 // Description: Partition the array into two parts,
-//	choose the rightmost index as pivot,and distribute the smallest element to the left of the pivot and the largest element to the right of the pivot.
 // Input: int *arr - the array to partition, int low - the lowest index,
 //	int high - the highest index
 // Output: int - the index of the pivot
@@ -106,10 +105,10 @@ void	quick_sort(int *stack, int low, int high)
 // Function: put_index
 // Description: Put the index, the place the number should have,
 // in the linked list.
-// Input: node *stack_a - the linked list
-//       node *stack_b - the linked list
+// Input: t_node *stack_a - the linked list
+//       t_node *stack_b - the linked list
 // Output: void
-void	put_index(node *stack_a, node *stack_b)
+void	put_index(t_node *stack_a, t_node *stack_b)
 {
 	int	j;
 	int	*arr;
@@ -117,7 +116,7 @@ void	put_index(node *stack_a, node *stack_b)
 
 	ac = lst_size(stack_a) + lst_size(stack_b);
 	j = 0;
-	arr = nodeval_to_int(stack_a, stack_b);
+	arr = t_nodeval_to_int(stack_a, stack_b);
 	quick_sort(arr, 0, ac - 1);
 	put_index_bis(stack_a, stack_b, ac, j, arr);
 	free(arr);

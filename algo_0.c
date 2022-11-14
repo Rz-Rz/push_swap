@@ -6,7 +6,7 @@
 /*   By: kdhrif <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 13:08:13 by kdhrif            #+#    #+#             */
-/*   Updated: 2022/11/11 22:11:09 by kdhrif           ###   ########.fr       */
+/*   Updated: 2022/11/14 20:27:45 by kdhrif           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,24 @@
 
 // Function: sort_2
 // Description: Sort the stack_a with 2 elements
-// Input: node **stack_a - the stack to sort
+// Input: t_node **stack_a - the stack to sort
 // Output: void
-void	sort_2(node **stack_a)
+void	sort_2(t_node **stack_a)
 {
 	if ((*stack_a)->value > (*stack_a)->next->value)
 		sa(stack_a, 1);
 }
 
 // Function: sort_3
-// Description: Sort the stack_a with 3 elements using the index of the nodes.
-// Input: node **stack_a - the stack to sort
+// Description: Sort the stack_a with 3 elements using the index of the t_nodes.
+// Input: t_node **stack_a - the stack to sort
 // Output: void
-void	sort_3(node **stack_a)
+void	sort_3(t_node **stack_a)
 {
 	put_index(*stack_a, NULL);
 	while (!is_ordered(*stack_a))
 	{
-		if ((*stack_a)->index > (*stack_a)->next->index &&
+		if ((*stack_a)->index > (*stack_a)->next->index && \
 			(*stack_a)->index > (*stack_a)->next->next->index)
 			ra(stack_a, 1);
 		else if ((*stack_a)->index > (*stack_a)->next->index)
@@ -42,7 +42,7 @@ void	sort_3(node **stack_a)
 }
 
 // Function: sort
-// Description: Sort the stack_a with n>3 elements using the index of the nodes.
+// Description: Sort the stack_a with n>3 elements using the index of the t_nodes.
 // To decide of the most efficient action, we compare the numbers of action that
 // will cost to put each element at the top of the pile. Then we choose the
 // cheapest sequence.
@@ -53,12 +53,12 @@ void	sort_3(node **stack_a)
 //  position (i.e. the index) of stack_a where each elements of stack_b should
 //  be. Then we numbers of action to put each element of stack_b to its target
 //  position in stack_a and we choose the cheapest option. Then we do the set of
-//  action needed to move the elements from stack_b to stack_a. Input: node
-//  **stack_a - the stack to sort to. node **stack_b - the stack to sort from.
+//  action needed to move the elements from stack_b to stack_a. Input: t_node
+//  **stack_a - the stack to sort to. t_node **stack_b - the stack to sort from.
 //  Output: void
-void	sort(node **stack_a, node **stack_b)
+void	sort(t_node **stack_a, t_node **stack_b)
 {
-	node	*to_sort;
+	t_node	*to_sort;
 
 	push_to_b(stack_a, stack_b);
 	while (*stack_b)
@@ -75,9 +75,9 @@ void	sort(node **stack_a, node **stack_b)
 
 // Function: push_to_b
 // Description: Push all the elements of stack_a to stack_b except 3 elements.
-// Then we sort the 3 elements with sort_3. Input: node **stack_a - the stack to
-// push from.  node **stack_b - the stack to push to. Output: void
-void	push_to_b(node **stack_a, node **stack_b)
+// Then we sort the 3 elements with sort_3. Input: t_node **stack_a - the stack to
+// push from.  t_node **stack_b - the stack to push to. Output: void
+void	push_to_b(t_node **stack_a, t_node **stack_b)
 {
 	int	i;
 	int	size;
@@ -97,14 +97,14 @@ void	push_to_b(node **stack_a, node **stack_b)
 }
 
 // Function: put_pos
-// Description: Put the position of each node in the linked list, starting from
-// 0 to lst_size. Input: node *stack_a - the linked list to put the position in.
-//        node *stack_b - the linked list to put the position in.
+// Description: Put the position of each t_node in the linked list, starting from
+// 0 to lst_size. Input: t_node *stack_a - the linked list to put the position in.
+//        t_node *stack_b - the linked list to put the position in.
 // Output: void
-void	put_pos(node *stack_a, node *stack_b)
+void	put_pos(t_node *stack_a, t_node *stack_b)
 {
 	int		i;
-	node	*tmp;
+	t_node	*tmp;
 
 	i = 0;
 	tmp = stack_a;

@@ -13,11 +13,11 @@
 
 // Function: r_actions_same_sign
 // Description: use the rr or rrr actions when the cost_a and b have the same
-// sign. input: node **stack_a
-//        node **stack_b
-//        node *to_sort
+// sign. input: t_node **stack_a
+//        t_node **stack_b
+//        t_node *to_sort
 // output : void
-void	r_actions_same_sign(node **stack_a, node **stack_b, node *to_sort)
+void	r_actions_same_sign(t_node **stack_a, t_node **stack_b, t_node *to_sort)
 {
 	if (to_sort->cost_a < 0 && to_sort->cost_b < 0)
 	{
@@ -41,11 +41,11 @@ void	r_actions_same_sign(node **stack_a, node **stack_b, node *to_sort)
 
 // Function: median_sorter
 // Description: Push the elements of the stack_a if their index is smaller than the median of all the elements of the stack_a. If they are not smaller than we ra.
-// input: node **stack_a
-//       node **stack_b
+// input: t_node **stack_a
+//       t_node **stack_b
 //       int median
 // output: void
-void	median_sorter(node **stack_a, node **stack_b, int median, int size)
+void	median_sorter(t_node **stack_a, t_node **stack_b, int median, int size)
 {
 	int	i;
 

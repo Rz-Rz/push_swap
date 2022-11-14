@@ -6,14 +6,15 @@
 /*   By: kdhrif <kdhrif@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 12:27:40 by kdhrif            #+#    #+#             */
-/*   Updated: 2022/11/14 17:07:22 by kdhrif           ###   ########.fr       */
+/*   Updated: 2022/11/14 20:28:55 by kdhrif           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // Function: ft_atoi
-// Description: Converts a string to an integer. Modify an int pointer is the input is invalid.
+// Description: Converts a string to an integer./ 
+// Modify an int pointer is the input is invalid.
 // Parameters: char *str - the string to convert.
 //             int *error - pointer to an int to modify if the input is invalid.
 // Return: The integer value of the string.
@@ -95,18 +96,19 @@ int	ft_strcmp(char *s1, char *s2)
 }
 
 // Function: free_str
-// Description: Goes through the av** and free each string starting from the last, then free the **ptr itself.
+// Description: Goes through the av** / 
+// and free each string starting from the last,/
+// then free the **ptr itself.
 // Input: **av - The char list to free.
 // Output: void
-void free_str(char **av)
+void	free_str(char **av)
 {
-				int l;
+	int	l;
 
-				l = 0;
-				while (av[l])
-								l++;
-				while (l >= 0)
-								free(av[l--]);
-				free(av);
+	l = 0;
+	while (av[l])
+		l++;
+	while (l >= 0)
+		free(av[l--]);
+	free(av);
 }
-

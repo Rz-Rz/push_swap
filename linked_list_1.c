@@ -2,11 +2,11 @@
 
 //Function: lst_free
 //Description: free the list
-//Input: node* head - the head of the list
+//Input: t_node* head - the head of the list
 //Output: none
-void	lst_free(node *head)
+void	lst_free(t_node *head)
 {
-	node	*temp;
+	t_node	*temp;
 
 	temp = head;
 	while (head != NULL)
@@ -19,9 +19,9 @@ void	lst_free(node *head)
 
 //Function: lst_size
 //Description: return the size of the list
-//Input: node* head - the head of the list
+//Input: t_node* head - the head of the list
 //Output: int - the size of the list
-int	lst_size(node *head)
+int	lst_size(t_node *head)
 {
 	int	i;
 
@@ -35,11 +35,11 @@ int	lst_size(node *head)
 }
 
 // Function lst_search_target_pos
-// Description: Search the node in the list with the target_pos passed as parameter.
-// Input: node *head - the head of the list to search in.
+// Description: Search the t_node in the list with the target_pos passed as parameter.
+// Input: t_node *head - the head of the list to search in.
 //       int target_pos - the target_pos to search for.
-// Output: node * - the node with the target_pos passed as parameter.
-node	*lst_search_target_pos(node *head, int target_pos)
+// Output: t_node * - the t_node with the target_pos passed as parameter.
+t_node	*lst_search_target_pos(t_node *head, int target_pos)
 {
 	while (head)
 	{

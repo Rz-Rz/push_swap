@@ -13,49 +13,49 @@
 #include "push_swap.h"
 
 // Function: compute_cost
-// Description: Compute the cost to put the passed node to the top of stack_x.
-// Input: node *node - the linked list to compute the cost in.
-// Output: the actual cost to put the passed node to the top of stack_b.
-int	compute_cost(node *node, int size)
+// Description: Compute the cost to put the passed t_node to the top of stack_x.
+// Input: t_node *t_node - the linked list to compute the cost in.
+// Output: the actual cost to put the passed t_node to the top of stack_b.
+int	compute_cost(t_node *t_node, int size)
 {
 	int	cost;
 
 	cost = 0;
-	if (node->pos <= size / 2)
-		cost = node->pos;
+	if (t_node->pos <= size / 2)
+		cost = t_node->pos;
 	else
 	{
-		cost = size - node->pos;
+		cost = size - t_node->pos;
 		cost *= -1;
 	}
 	return (cost);
 }
 
 // Function: compute_cost_a
-// Description: Compute the cost to put the corresponding node of target_pos to
-// the top of stack_a. Input: node *node_b - the linked list to compute the cost
+// Description: Compute the cost to put the corresponding t_node of target_pos to
+// the top of stack_a. Input: t_node *t_node_b - the linked list to compute the cost
 // in.
-//       node *stack_a - the linked list to compute the cost in.
+//       t_node *stack_a - the linked list to compute the cost in.
 //       int size - the size of stack_a.
-// Output: the actual cost to put the passed node to the top of stack_a.
-int	compute_cost_a(node *node_b, node *stack_a, int size)
+// Output: the actual cost to put the passed t_node to the top of stack_a.
+int	compute_cost_a(t_node *t_node_b, t_node *stack_a, int size)
 {
-	node	*tmp_a;
+	t_node	*tmp_a;
 	int		cost;
 
-	tmp_a = lst_search_target_pos(stack_a, node_b->target_pos);
+	tmp_a = lst_search_target_pos(stack_a, t_node_b->target_pos);
 	cost = compute_cost(tmp_a, size);
 	return (cost);
 }
 
 // Function: find_cheapest_action
 // Description: Find the cheapest action to do.
-// Input : node *stack_b - the linked list to compute the cost in.
-// Output : node * - the node with the cheapest action.
-node	*find_cheapest_action(node *stack_b)
+// Input : t_node *stack_b - the linked list to compute the cost in.
+// Output : t_node * - the t_node with the cheapest action.
+t_node	*find_cheapest_action(t_node *stack_b)
 {
-	node	*curr;
-	node	*cheapest;
+	t_node	*curr;
+	t_node	*cheapest;
 	int		min;
 	int		res;
 
@@ -76,13 +76,13 @@ node	*find_cheapest_action(node *stack_b)
 }
 
 // Function: do_actions
-// Description: Do the actions needed to put the node in stack_b in the right
-// position in stack_a. Input: node *stack_b - the linked list to do the actions
+// Description: Do the actions needed to put the t_node in stack_b in the right
+// position in stack_a. Input: t_node *stack_b - the linked list to do the actions
 // in.
-//       node *stack_a - the linked list to do the actions in.
-//       node *to_sort - the node to sort.
+//       t_node *stack_a - the linked list to do the actions in.
+//       t_node *to_sort - the t_node to sort.
 // Output: void
-void	do_actions(node **stack_a, node **stack_b, node *to_sort)
+void	do_actions(t_node **stack_a, t_node **stack_b, t_node *to_sort)
 {
 	int	i;
 
@@ -112,10 +112,10 @@ void	do_actions(node **stack_a, node **stack_b, node *to_sort)
 }
 
 // Function: rotate_until_sorted
-// Description: Rotate the stack until the node is sorted.
-// Input: node *stack_a - the linked list to do the actions in.
+// Description: Rotate the stack until the t_node is sorted.
+// Input: t_node *stack_a - the linked list to do the actions in.
 // Output: void
-void	rotate_until_sorted(node **stack_a)
+void	rotate_until_sorted(t_node **stack_a)
 {
 	int	min_pos;
 
