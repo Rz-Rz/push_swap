@@ -6,7 +6,7 @@
 /*   By: kdhrif <kdhrif@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 20:29:24 by kdhrif            #+#    #+#             */
-/*   Updated: 2022/11/14 22:10:08 by kdhrif           ###   ########.fr       */
+/*   Updated: 2022/11/15 15:22:25 by kdhrif           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -26,31 +26,10 @@ void	put_target_pos(t_node *stack_a, t_node *stack_b)
 {
 	t_node	*tmp_b;
 	t_node	*tmp_a;
-	int		res;
-	int		min;
 
 	tmp_b = stack_b;
-	while (tmp_b)
-	{
-		tmp_a = stack_a;
-		min = 500;
-		if (!is_superior(tmp_b, stack_a))
-		{
-			while (tmp_a)
-			{
-				res = ft_abs(tmp_b->index - tmp_a->index);
-				if (res < min && tmp_b->index < tmp_a->index)
-				{
-					min = res;
-					tmp_b->target_pos = tmp_a->pos;
-				}
-				tmp_a = tmp_a->next;
-			}
-		}
-		else
-			tmp_b->target_pos = get_pos_of_smallest_index(stack_a);
-		tmp_b = tmp_b->next;
-	}
+	tmp_a = stack_a;
+	put_target_bis(tmp_b, stack_a, tmp_a);
 }
 
 // Function: put_target_pos_bis

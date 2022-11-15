@@ -6,14 +6,15 @@
 /*   By: kdhrif <kdhrif@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 16:43:50 by kdhrif            #+#    #+#             */
-/*   Updated: 2022/11/14 18:53:37 by kdhrif           ###   ########.fr       */
+/*   Updated: 2022/11/15 15:20:00 by kdhrif           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
 
 // Function pa
 // Description: Push the first element of stack_b to stack_a
-// Input: t_node **stack_a - the stack to push to, t_node **stack_b - the stack to
+// Input: t_node **stack_a - the stack to push to, / 
+// t_node **stack_b - the stack to
 // push from Output: void
 void	pa(t_node **stack_a, t_node **stack_b, int toggle)
 {

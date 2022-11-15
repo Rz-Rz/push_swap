@@ -6,7 +6,7 @@
 /*   By: kdhrif <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 17:52:13 by kdhrif            #+#    #+#             */
-/*   Updated: 2022/11/13 21:50:49 by kdhrif           ###   ########.fr       */
+/*   Updated: 2022/11/15 16:25:31 by kdhrif           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,22 +18,16 @@
 // Input: t_node *stack_a - the linked list
 //       t_node *stack_b - the linked list
 // Output: void
-void	put_index_bis(t_node *stack_a, t_node *stack_b, int ac, int j, int *arr)
+void	put_index_bis(t_node *stack_a, t_node *stack_b, int ac, int *arr)
 {
 	t_node	*curr;
+	int		j;
 
+	j = 0;
 	while (j < ac)
 	{
 		curr = stack_a;
-		while (curr)
-		{
-			if (curr->value == arr[j])
-			{
-				curr->index = j++;
-				break ;
-			}
-			curr = curr->next;
-		}
+		put_ind_norm(curr, arr, &j);
 		curr = stack_b;
 		while (curr)
 		{
@@ -44,5 +38,26 @@ void	put_index_bis(t_node *stack_a, t_node *stack_b, int ac, int j, int *arr)
 			}
 			curr = curr->next;
 		}
+	}
+}
+
+// Function: put_ind_norm 
+// Description: Traverse a stack, and put the index of the number in the stack
+// Input: t_node *stack - the linked list
+// Output: int 
+void	put_ind_norm(t_node *stack, int *arr, int *j)
+{
+	t_node	*curr;
+
+	curr = stack;
+	while (curr)
+	{
+		if (curr->value == arr[*j])
+		{
+			curr->index = *j;
+			*j += 1;
+			break ;
+		}
+		curr = curr->next;
 	}
 }

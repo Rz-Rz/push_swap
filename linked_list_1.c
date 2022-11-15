@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   linked_list_1.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kdhrif <kdhrif@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/15 15:29:40 by kdhrif            #+#    #+#             */
+/*   Updated: 2022/11/15 15:29:57 by kdhrif           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "push_swap.h"
 
 //Function: lst_free
@@ -35,7 +46,8 @@ int	lst_size(t_node *head)
 }
 
 // Function lst_search_target_pos
-// Description: Search the t_node in the list with the target_pos passed as parameter.
+// Description: Search the t_node in the list with the / 
+// target_pos passed as parameter.
 // Input: t_node *head - the head of the list to search in.
 //       int target_pos - the target_pos to search for.
 // Output: t_node * - the t_node with the target_pos passed as parameter.

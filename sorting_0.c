@@ -6,7 +6,7 @@
 /*   By: kdhrif <kdhrif@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 21:29:24 by kdhrif            #+#    #+#             */
-/*   Updated: 2022/11/14 20:24:40 by kdhrif           ###   ########.fr       */
+/*   Updated: 2022/11/15 16:16:59 by kdhrif           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -110,14 +110,12 @@ void	quick_sort(int *stack, int low, int high)
 // Output: void
 void	put_index(t_node *stack_a, t_node *stack_b)
 {
-	int	j;
 	int	*arr;
 	int	ac;
 
 	ac = lst_size(stack_a) + lst_size(stack_b);
-	j = 0;
 	arr = t_nodeval_to_int(stack_a, stack_b);
 	quick_sort(arr, 0, ac - 1);
-	put_index_bis(stack_a, stack_b, ac, j, arr);
+	put_index_bis(stack_a, stack_b, ac, arr);
 	free(arr);
 }

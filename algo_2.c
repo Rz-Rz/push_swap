@@ -6,7 +6,7 @@
 /*   By: kdhrif <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 16:19:34 by kdhrif            #+#    #+#             */
-/*   Updated: 2022/11/11 14:48:43 by kdhrif           ###   ########.fr       */
+/*   Updated: 2022/11/15 15:20:34 by kdhrif           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,10 @@ int	compute_cost(t_node *t_node, int size)
 }
 
 // Function: compute_cost_a
-// Description: Compute the cost to put the corresponding t_node of target_pos to
-// the top of stack_a. Input: t_node *t_node_b - the linked list to compute the cost
+// Description: Compute the cost to put the / 
+// corresponding t_node of target_pos to
+// the top of stack_a. Input: t_node / 
+// *t_node_b - the linked list to compute the cost
 // in.
 //       t_node *stack_a - the linked list to compute the cost in.
 //       int size - the size of stack_a.
@@ -77,7 +79,8 @@ t_node	*find_cheapest_action(t_node *stack_b)
 
 // Function: do_actions
 // Description: Do the actions needed to put the t_node in stack_b in the right
-// position in stack_a. Input: t_node *stack_b - the linked list to do the actions
+// position in stack_a. Input: t_node *stack_b / 
+// - the linked list to do the actions
 // in.
 //       t_node *stack_a - the linked list to do the actions in.
 //       t_node *to_sort - the t_node to sort.

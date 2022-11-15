@@ -6,14 +6,15 @@
 /*   By: kdhrif <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 18:44:41 by kdhrif            #+#    #+#             */
-/*   Updated: 2022/11/14 20:24:20 by kdhrif           ###   ########.fr       */
+/*   Updated: 2022/11/15 15:18:24 by kdhrif           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
 
 // Function pb
 // Description: Push the first element of stack_a to stack_b
-// Input: t_node **stack_a - the stack to push from, t_node **stack_b - the stack to
+// Input: t_node **stack_a - the stack to push from,/ 
+// t_node **stack_b - the stack to
 // push to Output: void
 void	pb(t_node **stack_a, t_node **stack_b, int toggle)
 {

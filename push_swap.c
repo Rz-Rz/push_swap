@@ -6,7 +6,7 @@
 /*   By: kdhrif <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 16:08:20 by kdhrif            #+#    #+#             */
-/*   Updated: 2022/11/14 21:52:19 by kdhrif           ###   ########.fr       */
+/*   Updated: 2022/11/15 15:37:01 by kdhrif           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -22,21 +22,19 @@ t_node	*fill_stack_a(char **av)
 	int		i;
 	int		error;
 
-	error = 0;
-	i = 0;
+	i = -1;
 	stack_a = malloc(sizeof(t_node));
 	curr = stack_a;
-	while (av[i])
+	while (av[++i])
 	{
 		curr->value = ft_atoi(av[i], &error);
-		i++;
-		if (!av[i])
+		if (!av[i + 1])
 			break ;
 		curr->next = malloc(sizeof(t_node));
 		curr = curr->next;
 	}
 	curr->next = NULL;
-	error += is_duplicate(stack_a);
+	error = is_duplicate(stack_a);
 	free_str(av);
 	if (error)
 	{

@@ -6,7 +6,7 @@
 /*   By: kdhrif <kdhrif@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 21:45:50 by kdhrif            #+#    #+#             */
-/*   Updated: 2022/11/13 21:45:53 by kdhrif           ###   ########.fr       */
+/*   Updated: 2022/11/15 15:19:44 by kdhrif           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -40,7 +40,9 @@ void	r_actions_same_sign(t_node **stack_a, t_node **stack_b, t_node *to_sort)
 }
 
 // Function: median_sorter
-// Description: Push the elements of the stack_a if their index is smaller than the median of all the elements of the stack_a. If they are not smaller than we ra.
+// Description: Push the elements of the stack_a / 
+// if their index is smaller than the median of all /
+// the elements of the stack_a. If they are not smaller than we ra.
 // input: t_node **stack_a
 //       t_node **stack_b
 //       int median

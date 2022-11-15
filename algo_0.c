@@ -6,7 +6,7 @@
 /*   By: kdhrif <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 13:08:13 by kdhrif            #+#    #+#             */
-/*   Updated: 2022/11/14 20:27:45 by kdhrif           ###   ########.fr       */
+/*   Updated: 2022/11/15 15:19:17 by kdhrif           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ void	sort_3(t_node **stack_a)
 }
 
 // Function: sort
-// Description: Sort the stack_a with n>3 elements using the index of the t_nodes.
+// Description: Sort the stack_a with n>3 / 
+// elements using the index of the t_nodes.
 // To decide of the most efficient action, we compare the numbers of action that
 // will cost to put each element at the top of the pile. Then we choose the
 // cheapest sequence.
@@ -75,7 +76,8 @@ void	sort(t_node **stack_a, t_node **stack_b)
 
 // Function: push_to_b
 // Description: Push all the elements of stack_a to stack_b except 3 elements.
-// Then we sort the 3 elements with sort_3. Input: t_node **stack_a - the stack to
+// Then we sort the 3 elements with sort_3./ 
+// Input: t_node **stack_a - the stack to
 // push from.  t_node **stack_b - the stack to push to. Output: void
 void	push_to_b(t_node **stack_a, t_node **stack_b)
 {
@@ -97,8 +99,10 @@ void	push_to_b(t_node **stack_a, t_node **stack_b)
 }
 
 // Function: put_pos
-// Description: Put the position of each t_node in the linked list, starting from
-// 0 to lst_size. Input: t_node *stack_a - the linked list to put the position in.
+// Description: Put the position of each t_node / 
+// in the linked list, starting from
+// 0 to lst_size. Input: t_node *stack_a  / 
+// - the linked list to put the position in.
 //        t_node *stack_b - the linked list to put the position in.
 // Output: void
 void	put_pos(t_node *stack_a, t_node *stack_b)

@@ -6,7 +6,7 @@
 /*   By: kdhrif <kdhrif@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 20:33:04 by kdhrif            #+#    #+#             */
-/*   Updated: 2022/11/14 22:47:22 by kdhrif           ###   ########.fr       */
+/*   Updated: 2022/11/15 16:38:42 by kdhrif           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef PUSH_SWAP_H
@@ -55,7 +55,9 @@ void			swap(int *a, int *b);
 void			put_index(t_node *stack_a, t_node *stack_b);
 
 // sorting_1.c
-void			put_index_bis(t_node *stack_a, t_node *stack_b, int ac, int j, int *arr);
+void			put_index_bis(t_node *stack_a, t_node *stack_b, \
+				int ac, int *arr);
+void			put_ind_norm(t_node *stack, int *arr, int *j);
 
 // parsing_0.c
 int				is_ordered(t_node *stack);
@@ -126,7 +128,8 @@ char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strjoin(char const *s1, char const *s2);
 
 // checker.c
-int				execute_instruction(char *line, t_node **stack_a, t_node **stack_b);
+int				execute_instruction(char *line, t_node **stack_a, \
+				t_node **stack_b);
 int				checker(char **argv);
 
 #endif
