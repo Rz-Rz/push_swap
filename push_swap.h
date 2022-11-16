@@ -6,7 +6,7 @@
 /*   By: kdhrif <kdhrif@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 20:33:04 by kdhrif            #+#    #+#             */
-/*   Updated: 2022/11/16 18:32:06 by kdhrif           ###   ########.fr       */
+/*   Updated: 2022/11/16 19:27:51 by kdhrif           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef PUSH_SWAP_H
@@ -93,6 +93,7 @@ void			free_str(char **av);
 
 // ft_utils_2.c
 t_node			*error_clean(t_node *stack);
+void			f(t_node *curr, t_node *stack_a, char **av, int *error);
 
 //algo_0.c
 void			sort_3(t_node **stack_a);

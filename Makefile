@@ -6,7 +6,7 @@
 #    By: kdhrif <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/28 11:11:35 by kdhrif            #+#    #+#              #
-#    Updated: 2022/11/16 16:39:14 by kdhrif           ###   ########.fr        #
+#    Updated: 2022/11/16 21:12:40 by kdhrif           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ checker: $(CHECKER) printf
 	@echo "$(GREEN)ps compiled!$(DEF_COLOR)"
 
 $(PS) : $(OBJ) printf
-	$(CC) $(OBJ) $(PRINTF)/libftprintf.a -o $(PS)
+	$(CC) -g3 $(OBJ) $(PRINTF)/libftprintf.a -o $(PS)
 	@echo "$(GREEN)ps compiled!$(DEF_COLOR)"
 
 %.o : %.c $(HEADERS)

@@ -6,7 +6,7 @@
 /*   By: kdhrif <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 16:08:20 by kdhrif            #+#    #+#             */
-/*   Updated: 2022/11/16 19:09:50 by kdhrif           ###   ########.fr       */
+/*   Updated: 2022/11/16 21:31:45 by kdhrif           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -19,26 +19,14 @@ t_node	*fill_stack_a(char **av)
 {
 	t_node	*stack_a;
 	t_node	*curr;
-	int		i;
 	int		error;
 
-	i = -1;
 	error = 0;
 	stack_a = malloc(sizeof(t_node));
 	if (!stack_a)
 		return (NULL);
 	curr = stack_a;
-	while (av[++i])
-	{
-		curr->value = ft_atoi(av[i], &error);
-		if (!av[i + 1])
-			break ;
-		curr->next = malloc(sizeof(t_node));
-		if (!curr->next)
-			return (error_clean(stack_a));
-		curr = curr->next;
-	}
-	curr->next = NULL;
+	f(curr, stack_a, av, &error);
 	free_str(av);
 	error = is_duplicate(stack_a, &error);
 	if (error)
@@ -118,10 +106,7 @@ int	main(int ac, char **av)
 
 	i = 0;
 	if (ac < 2)
-	{
-		ft_printf("Error\n");
 		return (-1);
-	}
 	parsed_av = master_parser(av);
 	while (parsed_av[i])
 		i++;

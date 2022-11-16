@@ -6,7 +6,7 @@
 /*   By: kdhrif <kdhrif@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 21:45:50 by kdhrif            #+#    #+#             */
-/*   Updated: 2022/11/15 15:19:44 by kdhrif           ###   ########.fr       */
+/*   Updated: 2022/11/16 21:21:11 by kdhrif           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -52,7 +52,7 @@ void	median_sorter(t_node **stack_a, t_node **stack_b, int median, int size)
 	int	i;
 
 	i = 0;
-	while (i < size)
+	while (i < size - 3)
 	{
 		if ((*stack_a)->index < median)
 			pb(stack_a, stack_b, 1);

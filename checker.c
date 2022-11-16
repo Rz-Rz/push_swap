@@ -6,7 +6,7 @@
 /*   By: kdhrif <kdhrif@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 16:26:12 by kdhrif            #+#    #+#             */
-/*   Updated: 2022/11/16 19:07:17 by kdhrif           ###   ########.fr       */
+/*   Updated: 2022/11/16 21:37:38 by kdhrif           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "get_next_line.h"
@@ -91,25 +91,16 @@ t_node	*fill_stack_a(char **av)
 {
 	t_node	*stack_a;
 	t_node	*curr;
-	int		i;
 	int		error;
 
-	i = -1;
+	error = 0;
 	stack_a = malloc(sizeof(t_node));
 	if (!stack_a)
 		return (NULL);
 	curr = stack_a;
-	while (av[++i])
-	{
-		curr->value = ft_atoi(av[i], &error);
-		if (!av[i + 1])
-			break ;
-		curr->next = malloc(sizeof(t_node));
-		curr = curr->next;
-	}
-	curr->next = NULL;
-	error = is_duplicate(stack_a, &error);
+	f(curr, stack_a, av, &error);
 	free_str(av);
+	error = is_duplicate(stack_a, &error);
 	if (error)
 		return (error_clean(stack_a));
 	return (stack_a);
@@ -121,10 +112,13 @@ int	main(int ac, char **av)
 	char	**parsed_av;
 
 	if (ac < 2)
-		return (0);
+		return (-1);
 	parsed_av = master_parser(av);
 	i = checker(parsed_av);
 	if (i == -1)
+	{
 		ft_printf("KO\n");
+		return (-1);
+	}
 	return (0);
 }
