@@ -6,7 +6,7 @@
 /*   By: kdhrif <kdhrif@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 12:27:40 by kdhrif            #+#    #+#             */
-/*   Updated: 2022/11/14 20:28:55 by kdhrif           ###   ########.fr       */
+/*   Updated: 2022/11/16 15:02:47 by kdhrif           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,19 @@ int	ft_atoi(const char *nptr, int *error)
 	neg = 0;
 	while ((*nptr >= 9 && *nptr <= 13) || (*nptr == ' '))
 		nptr++;
-	if (*nptr == '-' || *nptr == '+')
+	while (*nptr == '-' || *nptr == '+')
 		if (*nptr++ == '-')
 			neg++;
 	while (*nptr >= '0' && *nptr <= '9')
 		nb = nb * 10 + *nptr++ - '0';
 	if (neg)
 		nb *= -1;
-	if (*nptr != '\0')
-		*error = 1;
+	while (*nptr)
+	{
+		if (*nptr != ' ')
+				*error = 1;
+		nptr++;
+	}
 	if (nb > 2147483647 || nb < -2147483648)
 		*error = 1;
 	return ((int)nb);
