@@ -6,7 +6,7 @@
 /*   By: kdhrif <kdhrif@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 16:26:12 by kdhrif            #+#    #+#             */
-/*   Updated: 2022/11/15 15:33:25 by kdhrif           ###   ########.fr       */
+/*   Updated: 2022/11/16 19:07:17 by kdhrif           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "get_next_line.h"
@@ -96,6 +96,8 @@ t_node	*fill_stack_a(char **av)
 
 	i = -1;
 	stack_a = malloc(sizeof(t_node));
+	if (!stack_a)
+		return (NULL);
 	curr = stack_a;
 	while (av[++i])
 	{
@@ -106,13 +108,10 @@ t_node	*fill_stack_a(char **av)
 		curr = curr->next;
 	}
 	curr->next = NULL;
-	error = is_duplicate(stack_a);
+	error = is_duplicate(stack_a, &error);
 	free_str(av);
 	if (error)
-	{
-		lst_free(stack_a);
-		return (NULL);
-	}
+		return (error_clean(stack_a));
 	return (stack_a);
 }
 

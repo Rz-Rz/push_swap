@@ -6,7 +6,7 @@
 /*   By: kdhrif <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 18:44:27 by kdhrif            #+#    #+#             */
-/*   Updated: 2022/11/14 18:44:29 by kdhrif           ###   ########.fr       */
+/*   Updated: 2022/11/16 19:09:33 by kdhrif           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -33,11 +33,13 @@ int	is_ordered(t_node *stack)
 // Description: Checks if the stack contains duplicates.
 // Return: 1 if duplicate, 0 if not.
 // Parameters: t_node *stack
-int	is_duplicate(t_node *stack)
+int	is_duplicate(t_node *stack, int *error)
 {
 	t_node	*tmp;
 	t_node	*tmp2;
 
+	if (*error)
+		return (-1);
 	tmp = stack;
 	while (tmp->next)
 	{

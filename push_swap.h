@@ -6,7 +6,7 @@
 /*   By: kdhrif <kdhrif@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 20:33:04 by kdhrif            #+#    #+#             */
-/*   Updated: 2022/11/16 15:16:07 by kdhrif           ###   ########.fr       */
+/*   Updated: 2022/11/16 18:32:06 by kdhrif           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef PUSH_SWAP_H
@@ -61,7 +61,7 @@ void			put_ind_norm(t_node *stack, int *arr, int *j);
 
 // parsing_0.c
 int				is_ordered(t_node *stack);
-int				is_duplicate(t_node *stack);
+int				is_duplicate(t_node *stack, int *error);
 
 // parsing_1.c
 char			**master_parser(char **av);

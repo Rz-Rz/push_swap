@@ -6,7 +6,7 @@
 /*   By: kdhrif <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 16:08:20 by kdhrif            #+#    #+#             */
-/*   Updated: 2022/11/16 15:15:34 by kdhrif           ###   ########.fr       */
+/*   Updated: 2022/11/16 19:09:50 by kdhrif           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -23,22 +23,24 @@ t_node	*fill_stack_a(char **av)
 	int		error;
 
 	i = -1;
-	stack_a = malloc(sizeof(t_node));
-	curr = stack_a;
 	error = 0;
+	stack_a = malloc(sizeof(t_node));
+	if (!stack_a)
+		return (NULL);
+	curr = stack_a;
 	while (av[++i])
 	{
 		curr->value = ft_atoi(av[i], &error);
 		if (!av[i + 1])
 			break ;
-		if (error)
-			return (error_clean(stack_a));
 		curr->next = malloc(sizeof(t_node));
+		if (!curr->next)
+			return (error_clean(stack_a));
 		curr = curr->next;
 	}
 	curr->next = NULL;
-	error = is_duplicate(stack_a);
 	free_str(av);
+	error = is_duplicate(stack_a, &error);
 	if (error)
 		return (error_clean(stack_a));
 	return (stack_a);
@@ -116,7 +118,10 @@ int	main(int ac, char **av)
 
 	i = 0;
 	if (ac < 2)
+	{
+		ft_printf("Error\n");
 		return (-1);
+	}
 	parsed_av = master_parser(av);
 	while (parsed_av[i])
 		i++;
