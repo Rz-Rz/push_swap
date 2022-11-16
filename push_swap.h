@@ -6,7 +6,7 @@
 /*   By: kdhrif <kdhrif@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 20:33:04 by kdhrif            #+#    #+#             */
-/*   Updated: 2022/11/15 16:38:42 by kdhrif           ###   ########.fr       */
+/*   Updated: 2022/11/16 15:16:07 by kdhrif           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef PUSH_SWAP_H
@@ -90,6 +90,9 @@ int				ft_strlen(char *str);
 char			*ft_strdup(char *str);
 int				ft_strcmp(char *s1, char *s2);
 void			free_str(char **av);
+
+// ft_utils_2.c
+t_node			*error_clean(t_node *stack);
 
 //algo_0.c
 void			sort_3(t_node **stack_a);
