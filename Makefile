@@ -6,7 +6,7 @@
 #    By: kdhrif <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/28 11:11:35 by kdhrif            #+#    #+#              #
-#    Updated: 2022/11/17 15:32:30 by kdhrif           ###   ########.fr        #
+#    Updated: 2022/11/17 16:49:41 by kdhrif           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,10 +14,10 @@ PS = push_swap
 HEADERS = ft_ps.h
 CC = gcc -Wall -Wextra -Werror
 SRCS = action_a.c action_b.c action_r.c ft_utils.c linked_list_0.c linked_list_1.c parsing_0.c parsing_1.c push_swap.c sorting_0.c sorting_1.c algo_0.c algo_1.c algo_2.c algo_3.c ft_split.c ft_strjoin.c ft_utils_2.c
-# CHECKER = action_a.c action_b.c action_r.c ft_utils.c linked_list_0.c linked_list_1.c parsing_0.c parsing_1.c checker.c  algo_0.c algo_1.c algo_2.c algo_3.c ft_split.c ft_strjoin.c get_next_line.c get_next_line_utils.c sorting_0.c sorting_1.c ft_utils_2.c
+CHECKER = action_a.c action_b.c action_r.c ft_utils.c linked_list_0.c linked_list_1.c parsing_0.c parsing_1.c checker.c  algo_0.c algo_1.c algo_2.c algo_3.c ft_split.c ft_strjoin.c get_next_line.c get_next_line_utils.c sorting_0.c sorting_1.c ft_utils_2.c
 OBJ = $(SRCS:%.c=%.o)
 PRINTF = ./ft_printf
-
+INC = ./ft_printf/libftprintf.a
 # Colors
 
 DEF_COLOR = \033[0;39m
@@ -30,20 +30,20 @@ MAGENTA = \033[0;95m
 CYAN = \033[0;96m
 WHITE = \033[0;97m
 
-%.o : %.c $(HEADERS)
-	@echo "$(YELLOW)Compiling: $< $(DEF_COLOR)"
+$(PS) : $(INC) $(OBJ)
+	$(CC) -g3 $(OBJ) $(INC) -o $(PS)
+	@echo "$(GREEN)ps compiled!$(DEF_COLOR)"
 
 all: $(PS)
 
-checker: $(CHECKER)
-	$(CC) $(CHECKER) $(PRINTF)/libftprintf.a -o checker
-	@echo "$(GREEN)ps compiled!$(DEF_COLOR)"
+checker: $(INC) $(CHECKER)
+	$(CC) $(CHECKER) $(INC) -o checker
+	@echo "$(GREEN)checker compiled!$(DEF_COLOR)"
 
-$(PS) : $(OBJ) printf
-	$(CC) -g3 $(OBJ) printf $(PRINTF)/libftprintf.a -o $(PS)
-	@echo "$(GREEN)ps compiled!$(DEF_COLOR)"
+%.o: %.c
+	@${CC} ${CFLAGS} -c $< -o $@
 
-printf :
+$(INC) :
 	make -C $(PRINTF)
 
 re: fclean all
@@ -51,12 +51,13 @@ re: fclean all
 
 clean:
 	rm -f *.o
-	make -C $(PRINTF) clean
+	make -sC $(PRINTF) clean
 	@echo "$(BLUE)ft_pushswap object files cleaned!$(DEF_COLOR)"
 
 fclean: clean
 	rm -f $(PS)
-	make -C $(PRINTF) fclean
+	rm -f checker
+	make -sC $(PRINTF) fclean
 	@echo "$(CYAN)ft_pushswap executable files cleaned!$(DEF_COLOR)"
 
 .PHONY: re all clean fclean bonus
