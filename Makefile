@@ -6,7 +6,7 @@
 #    By: kdhrif <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/28 11:11:35 by kdhrif            #+#    #+#              #
-#    Updated: 2022/11/17 16:49:41 by kdhrif           ###   ########.fr        #
+#    Updated: 2022/11/17 20:07:50 by kdhrif           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ $(PS) : $(INC) $(OBJ)
 
 all: $(PS)
 
-checker: $(INC) $(CHECKER)
+bonus: $(INC) $(CHECKER)
 	$(CC) $(CHECKER) $(INC) -o checker
 	@echo "$(GREEN)checker compiled!$(DEF_COLOR)"
 
