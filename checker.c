@@ -6,7 +6,7 @@
 /*   By: kdhrif <kdhrif@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 16:26:12 by kdhrif            #+#    #+#             */
-/*   Updated: 2022/11/17 14:10:28 by kdhrif           ###   ########.fr       */
+/*   Updated: 2022/11/17 19:19:11 by kdhrif           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "get_next_line.h"
@@ -35,8 +35,10 @@ int	checker(char **argv)
 		return (-1);
 	line = get_next_line(0);
 	checker_norm(line, &stack_a, &stack_b);
-	if (is_ordered(stack_a) == 1)
+	if (is_ordered(stack_a) == 1 && stack_b == NULL)
 		ft_printf("OK\n");
+	else
+		ft_printf("KO\n");
 	lst_free(stack_a);
 	return (1);
 }
@@ -133,9 +135,6 @@ int	main(int ac, char **av)
 	parsed_av = master_parser(av);
 	i = checker(parsed_av);
 	if (i == -1)
-	{
-		ft_printf("KO\n");
 		return (-1);
-	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: kdhrif <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 16:08:20 by kdhrif            #+#    #+#             */
-/*   Updated: 2022/11/17 14:30:49 by kdhrif           ###   ########.fr       */
+/*   Updated: 2022/11/17 19:49:59 by kdhrif           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -89,16 +89,17 @@ int	push_swap(int ac, char **av)
 
 	stack_b = NULL;
 	stack_a = fill_stack_a(av);
-	if (is_ordered(stack_a))
-		return (1);
 	if (stack_a == NULL)
 		return (-1);
+	if (is_ordered(stack_a))
+		return (1);
 	if (ac == 2)
 		sort_2(&stack_a);
 	else if (ac == 3)
 		sort_3(&stack_a);
 	else if (ac > 3 && ac < 501)
 		sort(&stack_a, &stack_b);
+	/* print_stack(stack_a); */
 	lst_free(stack_a);
 	return (1);
 }

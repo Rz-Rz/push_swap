@@ -6,7 +6,7 @@
 /*   By: kdhrif <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 13:08:13 by kdhrif            #+#    #+#             */
-/*   Updated: 2022/11/16 21:25:42 by kdhrif           ###   ########.fr       */
+/*   Updated: 2022/11/17 19:57:22 by kdhrif           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void	sort_2(t_node **stack_a)
 // Output: void
 void	sort_3(t_node **stack_a)
 {
-	put_index(*stack_a, NULL);
 	while (!is_ordered(*stack_a))
 	{
 		if ((*stack_a)->index > (*stack_a)->next->index && \
@@ -65,7 +64,6 @@ void	sort(t_node **stack_a, t_node **stack_b)
 	while (*stack_b)
 	{
 		put_pos(*stack_a, *stack_b);
-		put_index(*stack_a, *stack_b);
 		put_target_pos(*stack_a, *stack_b);
 		put_costs(*stack_a, *stack_b);
 		to_sort = find_cheapest_action(*stack_b);
@@ -95,7 +93,6 @@ void	push_to_b(t_node **stack_a, t_node **stack_b)
 		i++;
 	}
 	sort_3(stack_a);
-	put_target_pos(*stack_a, *stack_b);
 }
 
 // Function: put_pos

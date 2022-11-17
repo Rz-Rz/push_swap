@@ -6,7 +6,7 @@
 /*   By: kdhrif <kdhrif@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 20:32:58 by kdhrif            #+#    #+#             */
-/*   Updated: 2022/11/17 14:53:10 by kdhrif           ###   ########.fr       */
+/*   Updated: 2022/11/17 19:58:59 by kdhrif           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -66,4 +66,23 @@ void	f(t_node *curr, t_node *stack_a, char **av, int *error)
 		curr = curr->next;
 	}
 	curr->next = NULL;
+}
+
+// Name: check_err_atoi
+// Description: after the atoi function as worked, 
+// check if there is anything that is not a number, 
+// over is over the int max, or under the int min.
+// Parameters: char *str - the string to check.
+// Return: int - 0 if there is no error, 1 if there is an error.
+int	check_err_atoi(char *nptr, long long nb)
+{
+	while (*nptr)
+	{
+		if (*nptr != ' ')
+			return (1);
+		nptr++;
+	}
+	if (nb > 2147483647 || nb < -2147483648)
+		return (1);
+	return (0);
 }
