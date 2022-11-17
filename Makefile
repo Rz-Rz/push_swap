@@ -6,13 +6,13 @@
 #    By: kdhrif <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/28 11:11:35 by kdhrif            #+#    #+#              #
-#    Updated: 2022/11/17 20:07:50 by kdhrif           ###   ########.fr        #
+#    Updated: 2022/11/17 21:16:34 by kdhrif           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 PS = push_swap
 HEADERS = ft_ps.h
-CC = gcc -Wall -Wextra -Werror
+CC = gcc -Wall -Wextra -Werror -g 
 SRCS = action_a.c action_b.c action_r.c ft_utils.c linked_list_0.c linked_list_1.c parsing_0.c parsing_1.c push_swap.c sorting_0.c sorting_1.c algo_0.c algo_1.c algo_2.c algo_3.c ft_split.c ft_strjoin.c ft_utils_2.c
 CHECKER = action_a.c action_b.c action_r.c ft_utils.c linked_list_0.c linked_list_1.c parsing_0.c parsing_1.c checker.c  algo_0.c algo_1.c algo_2.c algo_3.c ft_split.c ft_strjoin.c get_next_line.c get_next_line_utils.c sorting_0.c sorting_1.c ft_utils_2.c
 OBJ = $(SRCS:%.c=%.o)
