@@ -6,7 +6,7 @@
 /*   By: kdhrif <kdhrif@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 20:33:04 by kdhrif            #+#    #+#             */
-/*   Updated: 2022/11/16 19:27:51 by kdhrif           ###   ########.fr       */
+/*   Updated: 2022/11/17 14:10:04 by kdhrif           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef PUSH_SWAP_H
@@ -92,7 +92,8 @@ int				ft_strcmp(char *s1, char *s2);
 void			free_str(char **av);
 
 // ft_utils_2.c
-t_node			*error_clean(t_node *stack);
+t_node			*error_clean(t_node *stack, int error);
+int				error_clean_2(t_node *stack, int error);
 void			f(t_node *curr, t_node *stack_a, char **av, int *error);
 
 //algo_0.c
@@ -132,6 +133,7 @@ char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strjoin(char const *s1, char const *s2);
 
 // checker.c
+void			checker_norm(char *line, t_node **stack_a, t_node **stack_b);
 int				execute_instruction(char *line, t_node **stack_a, \
 				t_node **stack_b);
 int				checker(char **argv);

@@ -6,21 +6,42 @@
 /*   By: kdhrif <kdhrif@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 20:32:58 by kdhrif            #+#    #+#             */
-/*   Updated: 2022/11/16 19:27:59 by kdhrif           ###   ########.fr       */
+/*   Updated: 2022/11/17 13:50:41 by kdhrif           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
-#include <wchar.h>
 
 // Name: error_clean
 // Description : Free the stack and return NULL.
 // Parameters: t_stack *stack - the stack to free.
 // Return: NULL
-t_node	*error_clean(t_node *stack)
+t_node	*error_clean(t_node *stack, int error)
 {
 	if (stack)
 		lst_free(stack);
+	if (error)
+	{
+		ft_printf("Error\n");
+		exit(-1);
+	}
 	return (NULL);
+}
+//
+// Name: error_clean
+// Description : Free the stack and return NULL.
+// Parameters: t_stack *stack - the stack to free.
+// Return: NULL
+
+int	error_clean_2(t_node *stack, int error)
+{
+	if (stack)
+		lst_free(stack);
+	if (error)
+	{
+		ft_printf("Error\n");
+		exit(-1);
+	}
+	return (-1);
 }
 
 // Name: fill_a_norm
@@ -41,7 +62,7 @@ void	f(t_node *curr, t_node *stack_a, char **av, int *error)
 			break ;
 		curr->next = malloc(sizeof(t_node));
 		if (!curr->next)
-			error_clean(stack_a);
+			error_clean(stack_a, 0);
 		curr = curr->next;
 	}
 	curr->next = NULL;

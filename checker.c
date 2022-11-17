@@ -6,7 +6,7 @@
 /*   By: kdhrif <kdhrif@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 16:26:12 by kdhrif            #+#    #+#             */
-/*   Updated: 2022/11/16 21:37:38 by kdhrif           ###   ########.fr       */
+/*   Updated: 2022/11/17 14:10:28 by kdhrif           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "get_next_line.h"
@@ -34,17 +34,34 @@ int	checker(char **argv)
 	if (stack_a == NULL)
 		return (-1);
 	line = get_next_line(0);
-	while (line)
-	{
-		if (execute_instruction(line, &stack_a, &stack_b) == -1)
-			return (-1);
-		free(line);
-		line = get_next_line(0);
-	}
+	checker_norm(line, &stack_a, &stack_b);
 	if (is_ordered(stack_a) == 1)
 		ft_printf("OK\n");
 	lst_free(stack_a);
 	return (1);
+}
+
+// Function: checker_norm
+// Description: parse the input from stdin with get_next_line, fill the stack_a,
+// with fill_stack_a function,
+// and execute each instruction.
+//Input : char *line - the line read from stdin.
+// t_node **stack_a - the stack_a.
+// t_node **stack_b - the stack_b.
+// Output: void  
+void	checker_norm(char *line, t_node **stack_a, t_node **stack_b)
+{
+	while (line)
+	{
+		if (execute_instruction(line, stack_a, stack_b) == -1)
+		{
+			free(line);
+			error_clean(*stack_a, 1);
+			return ;
+		}
+		free(line);
+		line = get_next_line(0);
+	}
 }
 
 // Function: execute_instruction
@@ -102,7 +119,7 @@ t_node	*fill_stack_a(char **av)
 	free_str(av);
 	error = is_duplicate(stack_a, &error);
 	if (error)
-		return (error_clean(stack_a));
+		return (error_clean(stack_a, 1));
 	return (stack_a);
 }
 

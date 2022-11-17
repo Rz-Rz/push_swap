@@ -6,7 +6,7 @@
 /*   By: kdhrif <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 16:08:20 by kdhrif            #+#    #+#             */
-/*   Updated: 2022/11/16 21:31:45 by kdhrif           ###   ########.fr       */
+/*   Updated: 2022/11/17 14:30:49 by kdhrif           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -27,10 +27,12 @@ t_node	*fill_stack_a(char **av)
 		return (NULL);
 	curr = stack_a;
 	f(curr, stack_a, av, &error);
+	if (!stack_a)
+		return (NULL);
 	free_str(av);
 	error = is_duplicate(stack_a, &error);
 	if (error)
-		return (error_clean(stack_a));
+		return (error_clean(stack_a, 0));
 	return (stack_a);
 }
 
@@ -87,6 +89,8 @@ int	push_swap(int ac, char **av)
 
 	stack_b = NULL;
 	stack_a = fill_stack_a(av);
+	if (is_ordered(stack_a))
+		return (1);
 	if (stack_a == NULL)
 		return (-1);
 	if (ac == 2)
