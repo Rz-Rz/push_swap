@@ -103,7 +103,7 @@ The target position is the position for the elements in stack A where they shoul
 | 8     | 5     | 4        |
 
 **Stack B**
-| value | index | position | target_pos |
+| value | index | position | target_pos | 
 | ----- | ----- | -------- | ---------- |
 | 7     | 4     | 1        | 4          |
 | 110   | 7     | 2        | 1          |
@@ -122,6 +122,22 @@ In both case we will make a difference for the classic rotate (**ra** and **rb**
 To distinguish between rotate and reverse rotate we calculate first the length of the stack that we divide by two. Then it's easy to know if the position of our element is greater or smaller than the middle of the stack. If it's smaller we use rotate, otherwise we use reverse rotate.
 It would be useful to make the cost of the reverse rotate negative. When applying the moves we will only need to look at the sign of the cost to choose between a reverse rotate or a rotate. We can even make a more efficient choice by applying **rr** and **rrr** when the sign of both cost are the same.
 Finally, we will compare the cost to move each element of stack B to stack A and choose the most efficient one, the one that cost the less amount of moves. We just have to sum up the absolute values of the cost of each element of stack B and their corresponding target of stack A.
+
+**Stack A**
+| **value** | **index** | **position** |
+| ----- | ----- | -------- |
+| 111   | 8     | 1        | 
+| 0     | 1     | 2        |
+| 3     | 2     | 3        |
+| 8     | 5     | 4        |
+
+**Stack B**
+| value | index | position | target_pos | cost_b | cost_a |
+| ----- | ----- | -------- | ---------- | ------ | ------ |
+| 7     | 4     | 1        | 4          |  1     | -1     |
+| 110   | 7     | 2        | 1          | 1      | 0      |
+| 4     | 3     | 3        | 4          | -2     | -1     |
+| 9     | 6     | 4        | 1          |  -1    | 0      |
 
 **Nota bene**: We don't use swap action (**sa**, **sb**, **ss**) because they do not modify the position of all the elements in the stack.
 
